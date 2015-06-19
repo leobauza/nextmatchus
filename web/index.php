@@ -4,7 +4,7 @@
 date_default_timezone_set ('America/New_York');
 
 $today = date('Y-m-d H:i:s');
-$date = date('Y-m-d H:i:s e', strtotime('2015-06-21 8:35:00'));
+$date = date('Y-m-d H:i:s e', strtotime('2015-06-22 20:00:00'));
 
 // print "<pre>";
 // print $today;
@@ -227,7 +227,7 @@ function makeNumberScreen ($num = 0)
     <i class="flag">flag</i>
     <h3 class="subtitle">Support Your Squad</h3>
     <h3 class="motto">With this counter you'll never miss another match</h3>
-    <p>The kind hearted souls at the Nji Media Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
+    <p>The kind hearted souls at the Nji Media's Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
     <ul class="overlay__social">
       <li><a class="btn--main facebook do-share" href="#"><i></i>Share</a></li>
       <li><a class="btn--main twitter do-tweet" href="#"><i></i>Share</a></li>
