@@ -214,7 +214,7 @@ function makeNumberScreen ($num = 0)
     </ul>
   </div>
 
-  <h5>2015 United States Women's Wolrd Cup Games Countdown</h5>
+  <h5>2015 United States Women's World Cup Games Countdown</h5>
 
   <a class="footer__brand" href="http://njimedia.com" target="_blank">NJI Media</a>
 
@@ -227,7 +227,7 @@ function makeNumberScreen ($num = 0)
     <i class="flag">flag</i>
     <h3 class="subtitle">Support Your Squad</h3>
     <h3 class="motto">With this counter you'll never miss another match</h3>
-    <p>The kind hearted souls at the Nji Media's Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
+    <p>The kind hearted souls at the NJI Media's Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
     <ul class="overlay__social">
       <li><a class="btn--main facebook do-share" href="#"><i></i>Share</a></li>
       <li><a class="btn--main twitter do-tweet" href="#"><i></i>Share</a></li>
@@ -235,7 +235,7 @@ function makeNumberScreen ($num = 0)
   </div>
   <footer class="overlay__footer">
     <a href="https://www.njimedia.com/team/joshshultz/" target="_blank" class="shultz-division">Shultz Division</a>
-    <a href="http://njimedia.com" target="_blank" class="nji-media">Nji Media</a>
+    <a href="http://njimedia.com" target="_blank" class="nji-media">NJI Media</a>
   </footer>
 </section>
 

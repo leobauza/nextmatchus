@@ -28,7 +28,7 @@ $footer_text: #9c9c9c;
     color: $footer_text;
     float: left;
     margin: 0px;
-    padding: 4px 0px;
+    padding: 3px 0px;
     line-height: 1em;
   }
   ul {
@@ -65,39 +65,24 @@ $footer_text: #9c9c9c;
 
   .site__footer {
     @extend %borderBox;
-    padding: 20px;
+    padding: 15px;
     h5 {
-      padding: 0px;
-      margin: 0px 0px 20px;
+      display: none;
     }
   }
 
   .footer__social {
-    position: static;
-    margin: 0px 0px 15px;
-    left: auto;
-    top: auto;
+    left: 10px;
     h6 {
-      padding: 0px;
-      text-align: center;
-      float: none;
-      margin: 0 0 15px;
-    }
-    ul {
-      width: 107px;
-      margin: 0 auto;
-      float: none;
+      letter-spacing: 1px;
     }
     a {
-      margin: 0px 20px;
+      margin: 0 0 0 15px;
     }
   }
 
   .footer__brand {
-    position: relative;
-    right: auto;
-    top: auto;
-    margin: 0px auto;
+    right: 10px;
   }
 
 }

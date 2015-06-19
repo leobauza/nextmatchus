@@ -150,9 +150,12 @@
 }
 
 @media (max-width: 53.125em) { // 850px
-
+  .counter__days {
+    font-size: 1.8em;
+    margin: -35px 0px 0px 0px;
+  }
   .ref-wrap {
-    bottom: -400px;
+    bottom: -325px;
   }
 
 }

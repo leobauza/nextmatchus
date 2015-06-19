@@ -17,18 +17,51 @@
       //optionOne: 'my option default'
     },
     debug: false,
+    moving: false,
     initialize: function () {
 
     },
 
     openOverlay: function (e) {
       e.preventDefault();
+
+      var self = e.data.context;
+
+      if (self.moving) { return; }
+
+      self.moving = true;
+
       $('.overlay').addClass('on');
+      setTimeout(function () {
+        $('.overlay').addClass('move');
+
+      }, 10);
+
+      setTimeout(function () {
+        self.moving = false;
+      }, 550);
+
     },
 
     closeOverlay: function (e) {
+
+      var self = e.data.context;
+
+      if (self.moving) { return; }
+
+      self.moving = true;
+
       e.preventDefault();
-      $('.overlay').removeClass('on');
+
+      $('.overlay').removeClass('move');
+      setTimeout(function () {
+        $('.overlay').removeClass('on');
+      }, 500);
+
+      setTimeout(function () {
+        self.moving = false;
+      }, 550);
+
     },
 
     events: {

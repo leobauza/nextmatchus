@@ -5,9 +5,11 @@
  * of the scss tree for temporary styles/sandboxing
  */
 .overlay {
+  @include transition(all .5s);
   display: none;
   position: absolute;
   top: 0px;
+  @include translate(0%, -100%);
   left: 0px;
   z-index: 500;
   width: 100%;
@@ -16,6 +18,9 @@
   text-align: center;
   &.on {
     display: block;
+  }
+  &.move {
+    @include translate(0%, 0%);
   }
   .inner {
     width: 330px;
@@ -92,9 +97,45 @@
 
 @media (max-width: 37.5em) { // 850px
 
-  .overlay .inner {
-    width: auto;
-    padding: 81px 20px 0px;
+  .overlay {
+    .inner {
+      width: auto;
+      padding: 20px 10px 0px;
+    }
+    h1 {
+      font-size: 3.5em;
+      margin: 0px 0px 10px;
+    }
+    .flag {
+      margin-bottom: 20px;
+    }
+    .subtitle {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+    .motto {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+  .overlay__footer {
+    bottom: 10px;
+  }
+
+  .overlay__social {
+    width: 271px;
+    li {
+      margin: 0 5px;
+    }
+  }
+
+  .overlay__close {
+    top: 10px;
+    right: 10px;
   }
 
 }
