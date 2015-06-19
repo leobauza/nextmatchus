@@ -2,27 +2,60 @@
  * 04_sections/footer
  * Styles for footer section
  */
-
+$footer_text: #9c9c9c;
 .site__footer {
   position: fixed;
   bottom: 0px;
   left: 0px;
   width: 100%;
   background: $text_colour;
-  height: 34px;
   h5 {
     text-align: center;
-    color: #9c9c9c;
+    color: $footer_text;
+    margin: 0px;
+    padding: 12px 0px;
   }
 }
 
 .footer__social {
+  @extend %group;
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: 33px;
+  top: 50%;
+  margin-top: -10px;
+  h6 {
+    color: $footer_text;
+    float: left;
+    margin: 0px;
+    padding: 4px 0px;
+    line-height: 1em;
+  }
+  ul {
+    @include resetList(0px 0px);
+    float: left;
+  }
+  li {
+    margin: 0px;
+    float: left;
+  }
+  a {
+    display: block;
+    text-indent: -9999px;
+    margin: 0 0 0 20px;
+  }
+  .facebook {
+    @include sprite($facebook);
+  }
+  .twitter {
+    @include sprite($twitter);
+  }
 }
 .footer__brand {
   position: absolute;
-  right: 0px;
-  top: 0px;
+  display: block;
+  right: 26px;
+  top: 50%;
+  margin-top: -9px;
+  text-indent: -9999px;
+  @include sprite($logo_nji);
 }

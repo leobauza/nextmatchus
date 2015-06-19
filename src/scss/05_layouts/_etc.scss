@@ -5,6 +5,25 @@
  * of the scss tree for temporary styles/sandboxing
  */
 
+// Wrap Everything and Ref
+.ref-wrap {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -224px;
+  height: 672px;
+  width: 448px;
+  overflow: hidden;
+}
+.ref {
+  @include square(448px, 494px);
+  background: url(../img/ref.png) no-repeat;
+  position: absolute;
+  bottom: -20px;
+  left: 0px;
+}
+
+// Counter
 .counter-wrap {
   @include borderRadius(15px);
   @include square(306px, auto);
@@ -15,9 +34,11 @@
   left: 50%;
   margin-left: -187px;
 }
+
+// Hours and Minutes
 .counter__main {
   @include square(306px, auto);
-  background: $counter_bg;
+  background: $counter_bg url(../img/bg_board.jpg) 50% 50% repeat;
   padding-top: 15px;
   margin: 0px 0px 9px;
   h6 {
@@ -29,6 +50,23 @@
     }
 }
 
+// Seconds
+.counter__seconds {
+  background: $counter_bg url(../img/bg_board.jpg) 50% 50% repeat;
+  width: 247px;
+  margin: 0px auto 0px;
+  padding: 7px 0px 2px;
+  .counter__bulb {
+    width: 5px;
+    margin: 0px 3px 0px 0px;
+  }
+}
+.seconds__row {
+  @extend %group;
+  margin: 0 0px 5px 5px;
+}
+
+// NUMBERS (hours and minutes details)
 .counter__number {
   width: 68px;
   padding: 0 3px;
@@ -45,9 +83,9 @@
   padding-right: 4px;
 }
 
+// Individual Bulbs and Rows of Bulbs
 .counter__row {
   @extend %group;
-  margin: 0 0 3px;
   margin: 0 auto 5px;
 }
 .counter__bulb {
@@ -95,37 +133,4 @@
       }
     }
   }
-}
-
-
-.counter__seconds {
-  background: $counter_bg;
-  width: 247px;
-  margin: 0px auto 0px;
-  padding: 7px 0px 2px;
-  .counter__bulb {
-    width: 5px;
-    margin: 0px 3px 0px 0px;
-  }
-}
-.seconds__row {
-  @extend %group;
-  margin: 0 0px 5px 5px;
-}
-
-.ref-wrap {
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  margin-left: -224px;
-  height: 672px;
-  width: 448px;
-  overflow: hidden;
-}
-.ref {
-  @include square(448px, 494px);
-  background: url(../img/ref.png) no-repeat;
-  position: absolute;
-  bottom: -20px;
-  left: 0px;
 }
