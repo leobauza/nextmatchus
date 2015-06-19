@@ -36,8 +36,8 @@
 
       FB.ui({
         method: 'feed',
-        name: "Shultz Divsion's nextmatch.us",
-        link: "http://nextmach.us",
+        name: "When is the next #USWNT game?",
+        link: "http://nextmatch.us",
         caption: message,
       }, function(response){
         console.log(response);
