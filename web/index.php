@@ -4,7 +4,7 @@
 date_default_timezone_set ('America/New_York');
 
 $today = date('Y-m-d H:i:s');
-$date = date('Y-m-d H:i:s e', strtotime('2015-06-19 03:00:00'));
+$date = date('Y-m-d H:i:s e', strtotime('2015-06-20 03:05:00'));
 
 // print "<pre>";
 // print $today;

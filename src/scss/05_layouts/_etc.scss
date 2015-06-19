@@ -38,8 +38,8 @@
 // Hours and Minutes
 .counter__main {
   @include square(306px, auto);
-  background: $counter_bg url(../img/bg_board.jpg) 50% 50% repeat;
-  padding-top: 15px;
+  background: $counter_bg url(../img/bg_board.jpg) 0% 50% repeat;
+  padding-top: 14px;
   margin: 0px 0px 9px;
   h6 {
     color: $white;
@@ -47,7 +47,8 @@
     font-weight: $lightfont;
     padding: 3px 0px 1px;
     clear: both;
-    }
+    line-height: 1em;
+  }
 }
 
 // Seconds
@@ -86,12 +87,12 @@
 // Individual Bulbs and Rows of Bulbs
 .counter__row {
   @extend %group;
-  margin: 0 auto 5px;
+  margin: 0 auto 4px;
 }
 .counter__bulb {
   position: relative;
   display: block;
-  @include square(13px, 15px);
+  @include square(13px, 14px);
   margin: 0 2px;
   float: left;
   i {
