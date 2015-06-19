@@ -4,5 +4,25 @@
  */
 
 .site__footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background: $text_colour;
+  height: 34px;
+  h5 {
+    text-align: center;
+    color: #9c9c9c;
+  }
+}
 
+.footer__social {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.footer__brand {
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }

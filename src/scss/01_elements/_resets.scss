@@ -110,6 +110,7 @@ h6 {
   text-rendering: optimizelegibility;
   line-height: 1.2em;
   color: $text_colour;
+  text-transform: uppercase;
   a {
     color: $link_colour;
     &:hover {
@@ -126,12 +127,10 @@ h1 {
 }
 h2 {
   font-size: $h2;
-  text-transform: uppercase;
   letter-spacing: 5px;
 }
 h3 {
   font-size: $h3;
-  text-transform: uppercase;
   font-weight: $boldfont;
   letter-spacing: 3px;
 }
