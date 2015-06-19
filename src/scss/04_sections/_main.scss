@@ -9,22 +9,23 @@
   bottom: 0px;
   left: 50%;
   margin-left: -224px;
-  height: 775px;
+  height: 1180px;
   width: 448px;
   z-index: 100;
 }
 
 // Wrap Everything and Ref
 .ref-wrap {
+  @include transition(bottom .5s);
   position: absolute;
-  bottom: 0px; // -20px (move this depending on height)
+  bottom: -350px; // -20px (move this depending on height)
   left: 0;
-  height: 672px;
+  height: 1130px;
   width: 448px;
 }
 .ref {
-  @include square(448px, 494px);
-  background: url(../img/ref.png) no-repeat;
+  @include square(448px, 950px);
+  background: url(../img/ref_v2.png) no-repeat;
   position: absolute;
   bottom: 0px;
   left: 0px;
