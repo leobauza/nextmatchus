@@ -194,11 +194,11 @@ function makeNumberScreen ($num = 0)
     <i class="ball"></i>
   </div>
   <h2>The #USWNT's Next Match Begins In</h2>
-  <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
   <a class="info-link" href="#">What's This?<i></i></a>
 </header>
 
 <section class="ref-wrap">
+  <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
   <section class="counter-wrap">
     <?php require_once('./includes/counter.php'); ?>
   </section>
@@ -237,7 +237,6 @@ function makeNumberScreen ($num = 0)
     <a href="http://njimedia.com" target="_blank" class="shultz-division">Shultz Division</a>
     <a href="http://njimedia.com" target="_blank" class="nji-media">Nji Media</a>
   </footer>
-
 </section>
 
 <?php require_once('./includes/footer.php'); ?>
