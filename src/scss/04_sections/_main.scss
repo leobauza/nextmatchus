@@ -7,10 +7,9 @@
   position: absolute;
   overflow: hidden;
   bottom: 0px;
-  left: 50%;
-  margin-left: -224px;
-  height: 1180px;
-  width: 448px;
+  //left: 50%;
+  //margin-left: -224px;
+  @include square(100%, 1180px);
   z-index: 100;
 }
 
@@ -19,9 +18,9 @@
   @include transition(bottom .5s);
   position: absolute;
   bottom: -350px; // -20px (move this depending on height)
-  left: 0;
-  height: 1130px;
-  width: 448px;
+  left: 50%;
+  margin-left: -224px;
+  @include square(448px, 1130px);
 }
 .ref {
   @include square(448px, 950px);
@@ -148,4 +147,12 @@
       }
     }
   }
+}
+
+@media (max-width: 53.125em) { // 850px
+
+  .ref-wrap {
+    bottom: -400px;
+  }
+
 }

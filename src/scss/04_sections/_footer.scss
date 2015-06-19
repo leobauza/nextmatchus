@@ -60,3 +60,44 @@ $footer_text: #9c9c9c;
   text-indent: -9999px;
   @include sprite($logo_nji);
 }
+
+@media (max-width: 53.125em) { // 850px
+
+  .site__footer {
+    @extend %borderBox;
+    padding: 20px;
+    h5 {
+      padding: 0px;
+      margin: 0px 0px 20px;
+    }
+  }
+
+  .footer__social {
+    position: static;
+    margin: 0px 0px 15px;
+    left: auto;
+    top: auto;
+    h6 {
+      padding: 0px;
+      text-align: center;
+      float: none;
+      margin: 0 0 15px;
+    }
+    ul {
+      width: 107px;
+      margin: 0 auto;
+      float: none;
+    }
+    a {
+      margin: 0px 20px;
+    }
+  }
+
+  .footer__brand {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: 0px auto;
+  }
+
+}
