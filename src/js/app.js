@@ -1,6 +1,6 @@
 "use strict";
 
 var Flyweight = require('./libs/flyweight'),
-    Sample = require('./modules/sample');
+    Clock = require('./modules/clock');
 
-var sample = new Sample();
+var clock = new Clock();

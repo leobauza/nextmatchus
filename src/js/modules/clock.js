@@ -6,12 +6,12 @@
 
   /**
    * @doc module
-   * @name CounterBoard
+   * @name Clock
    * @description
    * A sample fw module that uses Utils
    */
-  var CounterBoard = Flyweight.Module.extend({
-    name: 'CounterBoard',
+  var Clock = Flyweight.Module.extend({
+    name: 'Clock',
     //el: 'body',
     moduleOptions: {
       //optionOne: 'my option default'
@@ -20,7 +20,19 @@
     initialize: function () {
 
       var self = this,
-          numbers = [];
+          numbers = [],
+          timeData = $('.counter').data();
+      /**
+       * Grab this from PHP somehow....
+       */
+      self.timeDiff = {
+        days: timeData.days,
+        hours: [timeData.hourstens, timeData.hoursones],
+        mins: [timeData.minstens, timeData.minsones],
+        seconds: timeData.seconds
+      };
+
+      console.log(self.timeDiff);
 
       numbers[0] = {
         a: ["a", "b", "c", "d"],
@@ -122,43 +134,42 @@
         g: ["d"]
       };
 
+      self.numbers = numbers; // numbers available everywhere;
 
       /**
        * Initialize the counter: Every second make changes
-       * @test
-       *   1 day, 0 hours, 01 mins, 10 seconds
        */
-      var timeDiff = {
-            days: 1,
-            hours: 0,
-            mins: 1,
-            seconds: 10
-          },
-          count = timeDiff.seconds;
-
+      var count = self.timeDiff.seconds;
       (function clock () {
-        //self.toggleNumberBulbs(numbers[count]);
-        self.toggleSecondsBulbs(count);
+        //self.updateNumberBulbs(numbers[count]);
+        self.updateSecondsBulbs(count);
         if (count === 1) {
           count = 60;
         } else {
           count -= 1;
         }
         setTimeout(function () {
+
           /**
-           * Subtract a second from the time and decide what numbers are affected
-           * @example
-           *   - 1 day 23 hours 59 mins 59 seconds: Take away one second and only
-           *   the seconds counter is affected.
-           *   - 1 day 00 hours 00 mins 00 seconds: Take away one second and
-           *   seconds change to 59, minutes change to 59, hours change to 23,
-           *   and days change to 0
+           * Update seconds every second UNTIL the last SECOND
+           * Start the update chain whenever a new minute starts
            */
 
           // do work
-          console.log(count);
-          self.toggleSecondsBulbs(count);
-          //self.toggleNumberBulbs(numbers[count]);
+          if (count === 60) {
+            /**
+             * update chain
+             * decides what to update
+             */
+            self.updateChain("mins", "minutes__ones", "minutes__tens");
+          }
+
+          //console.log(count);
+
+          // update seconds bulbs
+          self.updateSecondsBulbs(count);
+
+          // keep the clock running
           clock();
 
         }, 1000);
@@ -168,8 +179,56 @@
 
     },
 
+    updateChain: function (timeKey, onesSelector, tensSelector) {
 
-    toggleSecondsBulbs: function (seconds) {
+      var self = this,
+          ones = self.timeDiff[timeKey][1] - 1,
+          tens = self.timeDiff[timeKey][0] - 1;
+
+      if (tens === -1 && ones === -1) {
+
+        self.updateNumberBulbs(5, '.' + tensSelector);
+        self.updateNumberBulbs(9, '.' + onesSelector);
+        self.timeDiff[timeKey][0] = 5;
+        self.timeDiff[timeKey][1] = 9;
+
+        if (timeKey === 'mins') {
+          console.log("new hour!");
+          self.updateChain('hours', 'hours__ones', 'hours__tens');
+        } else {
+          console.log("new day!");
+        }
+
+        return;
+
+      }
+
+      if (ones >= 0) {
+        console.log('update just ones');
+        // Min Ones more than or equal to zero so just update minutes
+        // Update self.timeDiff[timeKey][1] as well
+        // self.timeDiff[timeKey][1]; // minute ones
+        self.updateNumberBulbs(ones, '.' + onesSelector);
+        self.timeDiff[timeKey][1] = ones;
+        return;
+      } else {
+        console.log(tens + " this is tens....");
+        console.log('update tens and ones is 9');
+        // Min Ones is now 9 UNLESS we already passed the 9th minute
+        self.updateNumberBulbs(9, '.' + onesSelector);
+        // self.timeDiff[timeKey][1] = 9
+        self.timeDiff[timeKey][1] = 9;
+        // Min Tens gets updated to minus 1 UNLESS it is 0
+        self.updateNumberBulbs(tens, '.' + tensSelector);
+        // self.timeDiff[timeKey][0] = self.timeDiff[timeKey][0] - 1
+        self.timeDiff[timeKey][0] = tens;
+        return;
+      }
+
+    },
+
+    updateSecondsBulbs: function (seconds) {
+
       var self = this,
           $second = $('.counter__seconds .counter__bulb[data-second="' + seconds + '"]');
 
@@ -179,33 +238,28 @@
         $second.removeClass('on');
       }
 
-
     },
 
-    toggleNumberBulbs: function (number) {
+    updateNumberBulbs: function (number, selector) {
 
       var self = this;
 
       /**
-       * Go through all the bulbs in a given counter number
-       * @todo
-       *   - Only do this to the counter numbers that need it in any
-       *   given second that passes.
+       * Go through all the bulbs in a given number
        */
-      var $hoursTensRows = $('.hours__tens .counter__bulb');
-      $.each($hoursTensRows, function (k, v) {
+      var $targetNumber = $(selector + ' .counter__bulb');
+      $.each($targetNumber, function (k, v) {
 
         var $self = $(v),
             data = $self.data(),
             lat = data.lat,
-            long = data.long;
+            long = data.long,
+            numberMatrix = self.numbers[number];
 
         /**
          * Use the long/lat data to decide what bulbs to turn on
-         * @todo:
-         *   - Dynamically pull in the appropriate number definition to use
          */
-        if ($.inArray(long, number[lat]) !== -1) {
+        if ($.inArray(long, numberMatrix[lat]) !== -1) {
           $self.addClass('on');
         } else {
           $self.removeClass('on');
@@ -214,17 +268,11 @@
 
       });
 
-    },
-
-    onDelegated: function (e) {
-
-    },
-    events: {
-      // 'click p' : 'test'
     }
+
   });
 
   //Exports the page module for app.js to use
-  module.exports = CounterBoard;
+  module.exports = Clock;
 
 })(jQuery);
