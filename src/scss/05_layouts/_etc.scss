@@ -4,10 +4,6 @@
  * this is a temporary bucket at the highest level
  * of the scss tree for temporary styles/sandboxing
  */
-$red: #d92a27;
-$green: #45ad58;
-$offblack: #0e0e0e;
-$counter_bg: #2f2f2f;
 
 .counter-wrap {
   @include borderRadius(15px);
@@ -20,6 +16,14 @@ $counter_bg: #2f2f2f;
   background: $counter_bg;
   padding-top: 15px;
   margin: 0px 0px 9px;
+  h6 {
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: $lightfont;
+    padding: 3px 0px 1px;
+    clear: both;
+    }
 }
 
 .counter__number {

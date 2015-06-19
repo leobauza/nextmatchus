@@ -16,7 +16,7 @@
       <div class="counter__number hours__ones">
         <?php print makeNumberScreen($time_diff["hours"][1]); ?>
       </div>
-      <h4>Hrs</h4>
+      <h6>Hrs</h6>
 
     </div>
 
@@ -29,7 +29,7 @@
       <div class="counter__number minutes__ones">
         <?php print makeNumberScreen($time_diff["mins"][1]); ?>
       </div>
-      <h4>Min</h4>
+      <h6>Min</h6>
     </div>
 
   </header>

@@ -70,7 +70,7 @@ a {
 }
 a:hover {
   color: $link_hover_colour;
-  text-decoration: underline;
+  text-decoration: none;
 }
 button {
   font-family: $global_family;
@@ -126,9 +126,14 @@ h1 {
 }
 h2 {
   font-size: $h2;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 h3 {
   font-size: $h3;
+  text-transform: uppercase;
+  font-weight: $boldfont;
+  letter-spacing: 3px;
 }
 h4 {
   font-size: $h4;
@@ -138,6 +143,7 @@ h5 {
 }
 h6 {
   font-size: $h6;
+  letter-spacing: 3px;
 }
 pre {
   white-space: pre-wrap;

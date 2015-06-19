@@ -2,3 +2,34 @@
  * 04_sections/header
  * Styles for header section
  */
+.site__header {
+  position: relative;
+  padding: 84px 0px 30px;
+  h2, h3 {
+    text-align: center;
+  }
+  h2 {
+
+  }
+  h3 {
+
+  }
+}
+#brand {
+  @include square(195px, 195px);
+  background: $black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.info-link {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 1.2em;
+  color: $text_colour;
+  font-weight: $regularfont;
+  &:hover {
+    color: $text_colour;
+  }
+}

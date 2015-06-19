@@ -38,8 +38,7 @@ $time_diff = array(
   "seconds" => ($interval->s === 0)? 60 : $interval->s,
 );
 
-print_r($time_diff);
-
+// print_r($time_diff);
 // echo "difference " . $interval->days . " days <br>";
 // print "difference " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days <br>";
 
@@ -187,9 +186,31 @@ function makeNumberScreen ($num = 0)
 
 ?>
 
+
+<header class="site__header">
+  <a id="brand" href="#"><span>Shultz Division</span></a>
+  <h2>The #USWNT's Next Match Begins In</h2>
+  <h3 class="counter__days">2 Days</h3>
+  <a class="info-link" href="#">What's This?<i></i></a>
+</header>
+
 <section class="counter-wrap">
   <?php require_once('./includes/counter.php'); ?>
 </section>
 
+<footer class="site__footer">
+  <div class="footer__social">
+    <h6>Let America Know</h6>
+    <ul>
+      <li><a class="facebook" href="#">Facebook</a></li>
+      <li><a class="twitter" href="#">Twitter</a></li>
+    </ul>
+  </div>
+
+  <h5>2015 United States Women's Wolrd Cup Counter</h5>
+
+  <a class="footer__brand" href="http://njimedia.com" target="_blank">NJI Media</a>
+
+</footer>
 
 <?php require_once('./includes/footer.php'); ?>
