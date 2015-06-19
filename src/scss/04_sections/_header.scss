@@ -16,8 +16,8 @@
   }
 }
 #brand {
-  @include square(195px, 195px);
-  background: $black;
+  @include square(193px, 194px);
+  background: url(../img/bg_corner.png) 0% 0% no-repeat;
   position: absolute;
   top: 0px;
   left: 0px;

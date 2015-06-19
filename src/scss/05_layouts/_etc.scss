@@ -10,6 +10,10 @@
   @include square(306px, auto);
   background: $offblack;
   padding: 0px 30px 10px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  margin-left: -187px;
 }
 .counter__main {
   @include square(306px, auto);
@@ -107,4 +111,21 @@
 .seconds__row {
   @extend %group;
   margin: 0 0px 5px 5px;
+}
+
+.ref-wrap {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -224px;
+  height: 672px;
+  width: 448px;
+  overflow: hidden;
+}
+.ref {
+  @include square(448px, 494px);
+  background: url(../img/ref.png) no-repeat;
+  position: absolute;
+  bottom: -20px;
+  left: 0px;
 }

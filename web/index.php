@@ -194,8 +194,11 @@ function makeNumberScreen ($num = 0)
   <a class="info-link" href="#">What's This?<i></i></a>
 </header>
 
-<section class="counter-wrap">
-  <?php require_once('./includes/counter.php'); ?>
+<section class="ref-wrap">
+  <section class="counter-wrap">
+    <?php require_once('./includes/counter.php'); ?>
+  </section>
+  <div class="ref"></div>
 </section>
 
 <footer class="site__footer">
