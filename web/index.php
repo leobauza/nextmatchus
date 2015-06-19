@@ -221,7 +221,22 @@ function makeNumberScreen ($num = 0)
 </footer>
 
 <section class="overlay">
-  <h1>About</h1>
+  <a href="#" class="overlay__close">&times;</a>
+  <div class="inner">
+    <h1>About</h1>
+    <i class="flag">flag</i>
+    <h3 class="subtitle">Support Your Squad</h3>
+    <h3 class="motto">With this counter you'll never miss another match</h3>
+    <p>The kind hearted souls at the Nji Media Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
+    <ul class="overlay__social">
+      <li><a class="btn--main facebook" href="#"><i></i>Share</a></li>
+      <li><a class="btn--main twitter" href="#"><i></i>Share</a></li>
+    </ul>
+  </div>
+  <footer class="overlay__footer">
+    <a href="http://njimedia.com" target="_blank" class="shultz-division">Shultz Division</a>
+    <a href="http://njimedia.com" target="_blank" class="nji-media">Nji Media</a>
+  </footer>
 
 </section>
 

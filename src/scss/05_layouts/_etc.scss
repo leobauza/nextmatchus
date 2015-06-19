@@ -4,3 +4,82 @@
  * this is a temporary bucket at the highest level
  * of the scss tree for temporary styles/sandboxing
  */
+.overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 500;
+  height: 100%;
+  background: #eac300 url(../img/bg_yellow.jpg) repeat;
+  text-align: center;
+  .inner {
+    width: 40%;
+    padding: 81px 30% 0px;
+  }
+  h1 {
+    margin: 0px 0px 21px;
+  }
+  .flag {
+    display: block;
+    margin: 0px auto 32px;
+    text-indent: -9999px;
+    @include sprite($icon_shield);
+  }
+  .subtitle {
+    display: inline-block;
+    border-bottom: 1px solid $text_colour;
+    height: 27px;
+    margin: 0px 0px 25px;
+    font-weight: $lightfont;
+  }
+  .motto {
+    color: $red;
+    margin: 0px 0px 29px;
+  }
+  p {
+    margin: 0px 0px 38px;
+  }
+}
+
+.overlay__close {
+  @include transition(color .25s);
+  position: absolute;
+  font-size: 7.5em;
+  right: 29px;
+  top: 27px;
+  color: $black;
+  line-height: .3em;
+  &:hover {
+    color: $red;
+  }
+}
+
+.overlay__social {
+  @extend %group;
+  @include resetList(0px, 0px);
+  width: 316px;
+  margin: 0 auto;
+  li {
+    float: left;
+    margin: 0px 16px;
+  }
+}
+
+.overlay__footer {
+  position: absolute;
+  bottom: 39px;
+  text-indent: -9999px;
+  left: 50%;
+  margin-left: -90px;
+  a {
+    display: block;
+    margin: 0 14px;
+    float: left;
+  }
+  .shultz-division {
+    @include sprite($logo_shultz_division_alt);
+  }
+  .nji-media {
+    @include sprite($logo_nji_alt);
+  }
+}
