@@ -4,7 +4,7 @@
 date_default_timezone_set ('America/New_York');
 
 $today = date('Y-m-d H:i:s');
-$date = date('Y-m-d H:i:s e', strtotime('2015-06-20 03:05:00'));
+$date = date('Y-m-d H:i:s e', strtotime('2015-06-21 8:35:00'));
 
 // print "<pre>";
 // print $today;
@@ -194,7 +194,7 @@ function makeNumberScreen ($num = 0)
     <i class="ball"></i>
   </div>
   <h2>The #USWNT's Next Match Begins In</h2>
-  <h3 class="counter__days">2 Days</h3>
+  <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
   <a class="info-link" href="#">What's This?<i></i></a>
 </header>
 

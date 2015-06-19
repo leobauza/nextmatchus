@@ -494,8 +494,6 @@ var overlay = new Overlay();
         seconds: timeData.seconds
       };
 
-      console.log(self.timeDiff);
-
       numbers[0] = {
         a: ["a", "b", "c", "d"],
         b: ["a", "d"],
@@ -649,16 +647,30 @@ var overlay = new Overlay();
 
       if (tens === -1 && ones === -1) {
 
-        self.updateNumberBulbs(5, '.' + tensSelector);
-        self.updateNumberBulbs(9, '.' + onesSelector);
-        self.timeDiff[timeKey][0] = 5;
-        self.timeDiff[timeKey][1] = 9;
+        // start over is different for hours and minutes
+        var startOver = [2, 3];
+        if (timeKey === 'mins') {
+          startOver = [5, 9];
+        }
+
+        self.updateNumberBulbs(startOver[0], '.' + tensSelector);
+        self.updateNumberBulbs(startOver[1], '.' + onesSelector);
+        self.timeDiff[timeKey][0] = startOver[0];
+        self.timeDiff[timeKey][1] = startOver[1];
 
         if (timeKey === 'mins') {
-          console.log("new hour!");
           self.updateChain('hours', 'hours__ones', 'hours__tens');
         } else {
-          console.log("new day!");
+          var newDay = self.timeDiff.days - 1;
+          if (newDay < 0) { return; }
+          if (newDay === 0) {
+            $('.counter__days').html("0 Days");
+            // set flag that days are over!!
+          } else if (newDay === 1) {
+            $('.counter__days').html("1 Day");
+          } else {
+            $('.counter__days').html(newDay + " Days");
+          }
         }
 
         return;
@@ -666,7 +678,6 @@ var overlay = new Overlay();
       }
 
       if (ones >= 0) {
-        console.log('update just ones');
         // Min Ones more than or equal to zero so just update minutes
         // Update self.timeDiff[timeKey][1] as well
         // self.timeDiff[timeKey][1]; // minute ones
@@ -674,8 +685,6 @@ var overlay = new Overlay();
         self.timeDiff[timeKey][1] = ones;
         return;
       } else {
-        console.log(tens + " this is tens....");
-        console.log('update tens and ones is 9');
         // Min Ones is now 9 UNLESS we already passed the 9th minute
         self.updateNumberBulbs(9, '.' + onesSelector);
         // self.timeDiff[timeKey][1] = 9
@@ -759,18 +768,16 @@ var overlay = new Overlay();
     },
     debug: false,
     initialize: function () {
-      console.log("hi overlay");
+
     },
 
     openOverlay: function (e) {
       e.preventDefault();
-      console.log("open overlay");
       $('.overlay').addClass('on');
     },
 
     closeOverlay: function (e) {
       e.preventDefault();
-      console.log("close overlay");
       $('.overlay').removeClass('on');
     },
 

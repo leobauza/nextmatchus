@@ -18,18 +18,16 @@
     },
     debug: false,
     initialize: function () {
-      console.log("hi overlay");
+
     },
 
     openOverlay: function (e) {
       e.preventDefault();
-      console.log("open overlay");
       $('.overlay').addClass('on');
     },
 
     closeOverlay: function (e) {
       e.preventDefault();
-      console.log("close overlay");
       $('.overlay').removeClass('on');
     },
 
