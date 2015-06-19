@@ -2,10 +2,12 @@
 "use strict";
 
 var Flyweight = require('./libs/flyweight'),
-    Clock = require('./modules/clock');
+    Clock = require('./modules/clock'),
+    Overlay = require('./modules/overlay');
 
 var clock = new Clock();
-},{"./libs/flyweight":2,"./modules/clock":3}],2:[function(require,module,exports){
+var overlay = new Overlay();
+},{"./libs/flyweight":2,"./modules/clock":3,"./modules/overlay":4}],2:[function(require,module,exports){
 /**
  * The Flyweight Class
  */
@@ -734,6 +736,53 @@ var clock = new Clock();
 
   //Exports the page module for app.js to use
   module.exports = Clock;
+
+})(jQuery);
+},{"../libs/flyweight":2}],4:[function(require,module,exports){
+(function ($) {
+
+  "use strict";
+
+  var Flyweight = require('../libs/flyweight');
+
+  /**
+   * @doc module
+   * @name Overlay
+   * @description
+   * A sample fw module that uses Utils
+   */
+  var Overlay = Flyweight.Module.extend({
+    name: 'Overlay',
+    //el: 'body',
+    moduleOptions: {
+      //optionOne: 'my option default'
+    },
+    debug: false,
+    initialize: function () {
+      console.log("hi overlay");
+    },
+
+    openOverlay: function (e) {
+      e.preventDefault();
+      console.log("open overlay");
+      $('.overlay').addClass('on');
+    },
+
+    closeOverlay: function (e) {
+      e.preventDefault();
+      console.log("close overlay");
+      $('.overlay').removeClass('on');
+    },
+
+    events: {
+      "click .overlay__close": "closeOverlay",
+      "click .info-link": "openOverlay"
+    }
+
+  });
+
+  //Exports the page module for app.js to use
+  module.exports = Overlay;
 
 })(jQuery);
 },{"../libs/flyweight":2}]},{},[1]);

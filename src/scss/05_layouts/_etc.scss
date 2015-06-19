@@ -5,13 +5,18 @@
  * of the scss tree for temporary styles/sandboxing
  */
 .overlay {
+  display: none;
   position: absolute;
   top: 0px;
   left: 0px;
   z-index: 500;
+  width: 100%;
   height: 100%;
   background: #eac300 url(../img/bg_yellow.jpg) repeat;
   text-align: center;
+  &.on {
+    display: block;
+  }
   .inner {
     width: 40%;
     padding: 81px 30% 0px;
