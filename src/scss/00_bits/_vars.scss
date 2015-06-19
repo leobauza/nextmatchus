@@ -18,7 +18,7 @@ $brand_alt: darken($brand, 10);
 $body_bg: #89aea8;
 
 //links
-$link_colour: #428bca;
+$link_colour: $brand;
 $link_hover_colour: darken($link_colour, 20);
 
 //focus

@@ -195,12 +195,14 @@ function makeNumberScreen ($num = 0)
   <a class="info-link" href="#">What's This?<i></i></a>
 </header>
 
-<section class="ref-wrap">
-  <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
-  <section class="counter-wrap">
-    <?php require_once('./includes/counter.php'); ?>
+<section class="site__main">
+  <section class="ref-wrap">
+    <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
+    <section class="counter-wrap">
+      <?php require_once('./includes/counter.php'); ?>
+    </section>
+    <div class="ref"></div>
   </section>
-  <div class="ref"></div>
 </section>
 
 <footer class="site__footer">
