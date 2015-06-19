@@ -14,44 +14,59 @@ var social = new Social(document, {
 });
 
 
-var winHeight = $(window).height(),
-    bottomVal = parseInt($('.ref-wrap').css('bottom')),
-    diff = 0;
-
-if (winHeight < 1000) {
-  diff = 1000 - winHeight;
-  $('.ref-wrap').css({
-    'bottom': (bottomVal - diff) + "px"
-  });
-}
-
-if (winHeight > 1000) {
-  diff = winHeight - 1000;
-  $('.ref-wrap').css({
-    'bottom': (bottomVal + diff) + "px"
-  });
-}
 
 
-$(window).resize(function () {
+function heightAdjustments() {
 
-  var newHeight = $(window).height();
+  var winHeight = $(window).height(),
+      bottomVal = parseInt($('.ref-wrap').css('bottom')),
+      diff = 0;
 
-  if (newHeight < 1000) {
-    diff = 1000 - newHeight;
+  if (winHeight < 1000) {
+    diff = 1000 - winHeight;
     $('.ref-wrap').css({
       'bottom': (bottomVal - diff) + "px"
     });
   }
 
-  if (newHeight > 1000) {
-    diff = newHeight - 1000;
+  if (winHeight > 1000) {
+    diff = winHeight - 1000;
     $('.ref-wrap').css({
       'bottom': (bottomVal + diff) + "px"
     });
   }
 
-});
+
+  $(window).resize(function () {
+
+    var newHeight = $(window).height(),
+        throttle = Math.abs(newHeight - winHeight) > 20;
+
+    if (newHeight < 1000 && throttle) {
+      diff = 1000 - newHeight;
+      $('.ref-wrap').css({
+        'bottom': (bottomVal - diff) + "px"
+      });
+      winHeight = newHeight;
+    }
+
+    if (newHeight > 1000 && throttle) {
+      diff = newHeight - 1000;
+      $('.ref-wrap').css({
+        'bottom': (bottomVal + diff) + "px"
+      });
+      winHeight = newHeight;
+    }
+
+  });
+
+}
+
+setTimeout(function () {
+
+  heightAdjustments();
+
+}, 500);
 },{"./libs/flyweight":2,"./modules/clock":3,"./modules/overlay":4,"./modules/social":5}],2:[function(require,module,exports){
 /**
  * The Flyweight Class
