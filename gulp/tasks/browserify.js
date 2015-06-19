@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     transform = require('vinyl-transform'),
     handleErrors = require('../util/handleErrors'),
     bundleLogger = require('../util/bundleLogger'),
-    config = require('../config').browserify;
+    config = require('../config').browserify,
+    uglify = require('gulp-uglify');
 
 gulp.task('browserify', function () {
 
@@ -54,6 +55,7 @@ gulp.task('browserify', function () {
         .pipe(bundle)
         .on('error', handleErrors)
         .pipe(rename(bundleConfig.outputName))
+        .pipe(uglify())
         .pipe(gulp.dest(bundleConfig.dest))
         .on('end', function () {
           bundleLogger.end(theFile);
