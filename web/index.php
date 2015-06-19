@@ -189,6 +189,10 @@ function makeNumberScreen ($num = 0)
 
 <header class="site__header">
   <a id="brand" href="#"><span>Shultz Division</span></a>
+  <div class="usa-icons">
+    <i class="shield"></i>
+    <i class="ball"></i>
+  </div>
   <h2>The #USWNT's Next Match Begins In</h2>
   <h3 class="counter__days">2 Days</h3>
   <a class="info-link" href="#">What's This?<i></i></a>
@@ -215,5 +219,10 @@ function makeNumberScreen ($num = 0)
   <a class="footer__brand" href="http://njimedia.com" target="_blank">NJI Media</a>
 
 </footer>
+
+<section class="overlay">
+  <h1>About</h1>
+
+</section>
 
 <?php require_once('./includes/footer.php'); ?>
