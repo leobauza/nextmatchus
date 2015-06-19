@@ -4,47 +4,104 @@
  * this is a temporary bucket at the highest level
  * of the scss tree for temporary styles/sandboxing
  */
+$red: #d92a27;
+$green: #45ad58;
+$offblack: #0e0e0e;
+$counter_bg: #2f2f2f;
 
+.counter-wrap {
+  @include borderRadius(15px);
+  @include square(306px, auto);
+  background: $offblack;
+  padding: 0px 30px 10px;
+}
 .counter__main {
-  @include square(306px, 158px);
-  background: #2f2f2f;
+  @include square(306px, auto);
+  background: $counter_bg;
+  padding-top: 15px;
+  margin: 0px 0px 9px;
 }
 
 .counter__number {
-  width: 25%;
+  width: 68px;
+  padding: 0 3px;
   float: left;
+}
+.counter__hours, .counter__minutes {
+  @extend %group;
+  float: left;
+}
+.counter__hours {
+  padding-left: 4px;
+}
+.counter__minutes {
+  padding-right: 4px;
 }
 
 .counter__row {
   @extend %group;
   margin: 0 0 3px;
   margin: 0 auto 5px;
-  width: 68px;
 }
 .counter__bulb {
+  position: relative;
   display: block;
   @include square(13px, 15px);
   margin: 0 2px;
   float: left;
-  background: $black;
+  i {
+    @include transition(background .5s);
+    @include borderRadius(20px);
+    @include square(5px, 5px);
+    background: $offblack;
+    display: block;
+    position: absolute;
+    &.f {
+      top: 0;
+      left: 0;
+    }
+    &.s {
+      bottom: 0;
+      left: 0;
+    }
+    &.t {
+      top: 0;
+      right: 0;
+    }
+    &.l {
+      bottom: 0;
+      right: 0;
+    }
+  }
   &.on {
-    background: #e42e28;
+    i {
+      background: $red;
+    }
   }
   &.off {
-    background: #2f2f2f;
+    background: transparent;
+  }
+  .counter__minutes & {
+    &.on {
+      i {
+        background: $green;
+      }
+    }
   }
 }
 
 
 .counter__seconds {
-  background: #2f2f2f;
+  background: $counter_bg;
   width: 247px;
+  margin: 0px auto 0px;
+  padding: 7px 0px 2px;
   .counter__bulb {
     width: 5px;
-    margin: 0px 1px;
+    margin: 0px 3px 0px 0px;
   }
 }
 .seconds__row {
   @extend %group;
-  margin: 0 0 5px;
+  margin: 0 0px 5px 5px;
 }

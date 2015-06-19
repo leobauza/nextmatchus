@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Your Title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="a website description">
-  <meta name="author" content="the author">
-
-  <!-- styles -->
-  <link rel="stylesheet" href="/assets/css/styles.css" type="text/css" media="screen" charset="utf-8">
-
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-
-  <!-- fav and touch icons -->
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body>
+<?php require_once('./includes/header.php'); ?>
 
 <?php
 date_default_timezone_set ('America/New_York');
 
 $today = date('Y-m-d H:i:s');
-$date = date('Y-m-d H:i:s e', strtotime('2015-06-18 23:10:13'));
+$date = date('Y-m-d H:i:s e', strtotime('2015-06-18 23:59:59'));
 
 // print "<pre>";
 // print $today;
@@ -55,7 +35,7 @@ $time_diff = array(
   "days" => $interval->d,
   "hours" => $hoursTil,
   "mins" => $minsTil,
-  "seconds" => $interval->s
+  "seconds" => ($interval->s === 0)? 60 : $interval->s,
 );
 
 print_r($time_diff);
@@ -192,7 +172,7 @@ function makeNumberScreen ($num = 0)
       if (in_array(($row_data . $column_data), $numbers[$num])) {
         $output .= "<span class='counter__bulb on' data-lat='" . $row_data . "' data-long='" . $column_data . "'><i class='f'></i><i class='s'></i><i class='t'></i><i class='l'></i></span>";
       } elseif (!in_array(($row_data . $column_data), $excluded)) {
-        $output .= "<span class='counter__bulb' data-lat='" . $row_data . "' data-long='" . $column_data . "'></span>";
+        $output .= "<span class='counter__bulb' data-lat='" . $row_data . "' data-long='" . $column_data . "'><i class='f'></i><i class='s'></i><i class='t'></i><i class='l'></i></span>";
       } else {
         $output .= "<span class='counter__bulb off'></span>";
       }
@@ -207,68 +187,9 @@ function makeNumberScreen ($num = 0)
 
 ?>
 
-  <section class="counter"
-    data-days="<?php print $time_diff["days"]; ?>"
-    data-hourstens="<?php print $time_diff["hours"][0]; ?>"
-    data-hoursones="<?php print $time_diff["hours"][1]; ?>"
-    data-minstens="<?php print $time_diff["mins"][0]; ?>"
-    data-minsones="<?php print $time_diff["mins"][1]; ?>"
-    data-seconds="<?php print $time_diff["seconds"]; ?>">
-    <header class="counter__main">
+<section class="counter-wrap">
+  <?php require_once('./includes/counter.php'); ?>
+</section>
 
-      <div class="counter__hours">
 
-        <div class="counter__number hours__tens">
-          <?php print makeNumberScreen($time_diff["hours"][0]); ?>
-        </div>
-
-        <div class="counter__number hours__ones">
-          <?php print makeNumberScreen($time_diff["hours"][1]); ?>
-        </div>
-
-      </div>
-
-      <div class="counter__minutes">
-
-        <div class="counter__number minutes__tens">
-          <?php print makeNumberScreen($time_diff["mins"][0]); ?>
-        </div>
-
-        <div class="counter__number minutes__ones">
-          <?php print makeNumberScreen($time_diff["mins"][1]); ?>
-        </div>
-
-      </div>
-
-    </header>
-    <footer class="counter__seconds">
-      <div class="seconds__row">
-      <?php
-      for($seconds = 0; $seconds < 30; $seconds++) {
-        if ($time_diff['seconds'] > $seconds) {
-          print "<span class='counter__bulb on' data-second='" . ($seconds + 1) . "'><i class='f'></i><i class='l'></i></span>";
-        } else {
-          print "<span class='counter__bulb' data-second='" . ($seconds + 1) . "'><i class='f'></i><i class='l'></i></span>";
-        }
-      }
-      ?>
-      </div>
-      <div class="seconds__row">
-      <?php
-      for($seconds = 30; $seconds < 60; $seconds++) {
-        if ($time_diff['seconds'] > $seconds) {
-          print "<span class='counter__bulb on' data-second='" . ($seconds + 1) . "'><i class='f'></i><i class='l'></i></span>";
-        } else {
-          print "<span class='counter__bulb' data-second='" . ($seconds + 1) . "'><i class='f'></i><i class='l'></i></span>";
-        }
-      }
-      ?>
-      </div>
-    </footer>
-  </section>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="/assets/js/main.js" type="text/javascript"></script>
-
-</body>
-</html>
+<?php require_once('./includes/footer.php'); ?>
