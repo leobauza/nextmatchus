@@ -165,7 +165,7 @@
           //console.log(count);
 
           // update seconds bulbs
-          self.updateSecondsBulbs(count);
+          //self.updateSecondsBulbs(count);
 
           // keep the clock running
           clock();
@@ -175,6 +175,11 @@
       })();
 
 
+    },
+
+    getTimeDiff: function () {
+      var self = this;
+      return self.timeDiff;
     },
 
     updateChain: function (timeKey, onesSelector, tensSelector) {
@@ -241,11 +246,13 @@
       var self = this,
           $second = $('.counter__seconds .counter__bulb[data-second="' + seconds + '"]');
 
+
       if (seconds === 1) {
         $('.counter__seconds .counter__bulb').addClass('on');
       } else {
         $second.removeClass('on');
       }
+      self.timeDiff.seconds = seconds;
 
     },
 

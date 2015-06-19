@@ -158,8 +158,6 @@ function makeNumberScreen ($num = 0)
     "gd",
   );
 
-
-
   $output = '';
   for($row = 0; $row < 7; $row++) {
     $row_data = $dictionary[$row];
@@ -188,12 +186,12 @@ function makeNumberScreen ($num = 0)
 
 
 <header class="site__header">
-  <a id="brand" href="#"><span>Shultz Division</span></a>
+  <a id="brand" href="https://www.njimedia.com/team/joshshultz/" target="_blank"><span>Shultz Division</span></a>
   <div class="usa-icons">
     <i class="shield"></i>
     <i class="ball"></i>
   </div>
-  <h2>The #USWNT's Next Match Begins In</h2>
+  <h2>The <a href="#" class="do-tweet">#USWNT</a> Next Match Begins In</h2>
   <a class="info-link" href="#">What's This?<i></i></a>
 </header>
 
@@ -209,8 +207,8 @@ function makeNumberScreen ($num = 0)
   <div class="footer__social">
     <h6>Let America Know</h6>
     <ul>
-      <li><a class="facebook" href="#">Facebook</a></li>
-      <li><a class="twitter" href="#">Twitter</a></li>
+      <li><a class="facebook do-share" href="#">Facebook</a></li>
+      <li><a class="twitter do-tweet" href="#">Twitter</a></li>
     </ul>
   </div>
 
@@ -229,12 +227,12 @@ function makeNumberScreen ($num = 0)
     <h3 class="motto">With this counter you'll never miss another match</h3>
     <p>The kind hearted souls at the Nji Media Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
     <ul class="overlay__social">
-      <li><a class="btn--main facebook" href="#"><i></i>Share</a></li>
-      <li><a class="btn--main twitter" href="#"><i></i>Share</a></li>
+      <li><a class="btn--main facebook do-share" href="#"><i></i>Share</a></li>
+      <li><a class="btn--main twitter do-tweet" href="#"><i></i>Share</a></li>
     </ul>
   </div>
   <footer class="overlay__footer">
-    <a href="http://njimedia.com" target="_blank" class="shultz-division">Shultz Division</a>
+    <a href="https://www.njimedia.com/team/joshshultz/" target="_blank" class="shultz-division">Shultz Division</a>
     <a href="http://njimedia.com" target="_blank" class="nji-media">Nji Media</a>
   </footer>
 </section>

@@ -32,7 +32,8 @@
         "attachEvent",
         "exports",
         "YT",
-        "L"
+        "L",
+        "FB"
     ],
 
 
