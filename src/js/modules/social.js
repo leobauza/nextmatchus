@@ -56,7 +56,7 @@
           tweet = '',
           url = 'http://nextmatch.us';
 
-      tweet = "https://twitter.com/share?url=" + url + "&text=" + message;
+      tweet = "https://twitter.com/share?url=" + encodeURIComponent(url) + "&text=" + message;
 
       self.openIntent(tweet, 540, 420);
 
