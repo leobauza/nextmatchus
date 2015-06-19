@@ -5,198 +5,46 @@
  * of the scss tree for temporary styles/sandboxing
  */
 
-@mixin importantBorderRadius ($radius: 3px) {
-  -webkit-border-radius:$radius!important;
-     -moz-border-radius:$radius!important;
-          border-radius:$radius!important;
+.counter__main {
+  @include square(306px, 158px);
+  background: #2f2f2f;
 }
 
-$docBorder: Greyscale(12);
-
-.bc-soon {
-  color: Greyscale(25);
+.counter__number {
+  width: 25%;
+  float: left;
 }
 
-.site-header {
-  padding-top: 36px;
-  margin:0 0 20px;
-  .nav-bar {
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:100;
-  }
-}
-.short {
-  margin-right: 50%; //does this solve the IE issue?
-}
-
-.boxy {
-  border:1px solid ColourConstructor(0, $brand);
-  background: ColourConstructor(-100, $brand_alt);
-  color: $text_colour;
-}
-
-
-
-
-
-
-/*documentation divisions*/
-.bc-section-header {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid $docBorder;
-}
-
-.bc-doc-box {
-  padding-bottom: 100px;
-}
-
-.bc-capsule {
-  @include borderRadius(5px);
-  position:relative;
-  border: 1px solid $docBorder;
-  padding: 60px 20px 20px;
-  margin: 0 0 20px;
-  &.code-companion {
-    @include borderRadius(5px 5px 0 0);
-    margin: 0;
-    border-bottom: none;
-  }
-  &:after {
-    content: "Sample";
-    position:absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 2em;
-    font-weight: 500;
-    color: Greyscale(25);
-  }
-  &.rel-files {
-    &:after {
-      content: "Relevant Files";
-    }
-  }
-  ul, p, ol {
-    &:last-child {
-      margin-bottom: 0;
-      li:last-child {
-        margin: 0;
-      }
-    }
-  }
-}
-
-
-
-/*github gist styles*/
-.bc-gist-solo {
-  .gist, .gist-file {
-    @include importantBorderRadius(3px);
-  }
-}
-
-.gist {
-  font-size: 1.3em;
-  margin-bottom: 40px;
-  .gist-file {
-    margin: 0!important;
-    .gist-data .line-pre {
-      font-family: $code!important;
-    }
-    .gist-data .line-numbers {
-      display: none;
-    }
-  }
-}
-.gist, .gist-file {
-  @include importantBorderRadius(0px 0px 3px 3px);
-}
-
-@media (max-width: 959px) {
-  .short {
-    width: auto;
-  }
-}
-
-.narrow-box {
-  width:500px;
-  margin:0 auto 40px;
-}
-
-.paint .inner {
-  background: $brand;
-  border-bottom: 1px solid $black;
-}
-
-/**
- * Drupal Specific
- */
-.element-invisible {
-  display: none;
-}
-
-#admin-menu-wrapper {
-  ul {
-    font-size: 100%;
-  }
-  .dropdown > li > ul {
-
-  }
-}
-
-#admin-menu {
-  .dropdown {
-    li {
-      line-height: 1.2em;
-    }
-  }
-}
-
-.page-user {
-  background: $white;
-}
-
-/**
- * Drupal Tabs
- */
-.nav-tabs {
+.counter__row {
   @extend %group;
-  @include resetList(0px, 10px);
-  li {
-    float: left;
-    margin: 0 2px 0 0;
-  }
-  a {
-    @include borderRadius();
-    background: $brand;
-    color: $white;
-    display: block;
-    padding: 5px 10px;
-    font-weight: 700;
-    font-size: 1.2em;
-    &:hover {
-      text-decoration: none;
-      background: darken($brand, 10);
-    }
-  }
+  margin: 0 0 3px;
+  margin: 0 auto 5px;
+  width: 68px;
 }
-
-/**
- * Drupal Login
- */
-#user-login {
-  width: 280px;
-  padding: 20px;
-  margin: 0 auto;
-  .form-item {
-    margin: 0 0 20px;
+.counter__bulb {
+  display: block;
+  @include square(13px, 15px);
+  margin: 0 2px;
+  float: left;
+  background: $black;
+  &.on {
+    background: #e42e28;
+  }
+  &.off {
+    background: #2f2f2f;
   }
 }
 
 
-
-
-
-
+.counter__seconds {
+  background: #2f2f2f;
+  width: 247px;
+  .counter__bulb {
+    width: 5px;
+    margin: 0px 1px;
+  }
+}
+.seconds__row {
+  @extend %group;
+  margin: 0 0 5px;
+}

@@ -7,21 +7,16 @@
         '01_elements/lists',
         '01_elements/forms',
         '01_elements/tables';
+
 // 02 items
-@import '02_items/btns',
-        '02_items/callouts',
-        '02_items/dropdowns',
-        '02_items/listgroups';
+@import '02_items/btns';
+
 // 03 collections
-@import '03_collections/boxes',
-        '03_collections/dropdowns',
-        '03_collections/heroes',
-        '03_collections/modals',
-        '03_collections/navs';
+@import '03_collections/boxes';
+
 // 04 sections
 @import '04_sections/header',
         '04_sections/main',
-        '04_sections/sidebar',
         '04_sections/footer';
 // 05 layouts
 @import '05_layouts/site',

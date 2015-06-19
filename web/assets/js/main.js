@@ -1,14 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
-var Flyweight, Sample;
+var Flyweight = require('./libs/flyweight'),
+    Sample = require('./modules/sample');
 
-if (typeof require === 'function') {
-  Flyweight = require('./libs/flyweight');
-  Sample = require('./modules/sample');
-}
-
-console.log(Flyweight);
+var sample = new Sample();
 },{"./libs/flyweight":2,"./modules/sample":3}],2:[function(require,module,exports){
 /**
  * The Flyweight Class
@@ -466,52 +462,230 @@ console.log(Flyweight);
 
   "use strict";
 
-  var Flyweight;
-
-  if (typeof require === 'function' && typeof Flyweight !== 'function') {
-    Flyweight = require('../libs/flyweight');
-  }
+  var Flyweight = require('../libs/flyweight');
 
   /**
    * @doc module
-   * @name Sample
+   * @name CounterBoard
    * @description
    * A sample fw module that uses Utils
    */
-  var Sample = Flyweight.Module.extend({
-    name: 'Sample',
-    el: 'body',
+  var CounterBoard = Flyweight.Module.extend({
+    name: 'CounterBoard',
+    //el: 'body',
     moduleOptions: {
-      optionOne: 'my option default'
+      //optionOne: 'my option default'
     },
     debug: false,
     initialize: function () {
-      this.msg(this.$el); //access the module element through this.$el
-      this.msg(this.optionOne); //access to modules options
-    },
-    onDelegated: function (e) {
-      this.msg("onDelegate Sample (replaces empty default)");
-    },
-    test: function (e) {
-      var _this = e.data.context,
-          $this = $(this),
-          html = $this.html();
 
-      _this.msg("CHANGE ME");
+      var self = this,
+          numbers = [];
+
+      numbers[0] = {
+        a: ["a", "b", "c", "d"],
+        b: ["a", "d"],
+        c: ["a", "d"],
+        d: ["a", "d"],
+        e: ["a", "d"],
+        f: ["a", "d"],
+        g: ["a", "b", "c", "d"]
+      };
+
+      numbers[1] = {
+        a: ["d"],
+        b: ["d"],
+        c: ["d"],
+        d: ["d"],
+        e: ["d"],
+        f: ["d"],
+        g: ["d"]
+      };
+
+      numbers[2] = {
+        a: ["a", "b", "c", "d"],
+        b: ["d"],
+        c: ["d"],
+        d: ["a", "b", "c", "d"],
+        e: ["a"],
+        f: ["a"],
+        g: ["a", "b", "c", "d"]
+      };
+
+      numbers[3] = {
+        a: ["a", "b", "c", "d"],
+        b: ["d"],
+        c: ["d"],
+        d: ["a", "b", "c", "d"],
+        e: ["d"],
+        f: ["d"],
+        g: ["a", "b", "c", "d"]
+      };
+
+      numbers[4] = {
+        a: ["a", "d"],
+        b: ["a", "d"],
+        c: ["a", "d"],
+        d: ["a", "b", "c", "d"],
+        e: ["d"],
+        f: ["d"],
+        g: ["d"]
+      };
+
+      numbers[5] = {
+        a: ["a", "b", "c", "d"],
+        b: ["a"],
+        c: ["a"],
+        d: ["a", "b", "c", "d"],
+        e: ["d"],
+        f: ["d"],
+        g: ["a", "b", "c", "d"]
+      };
+
+      numbers[6] = {
+        a: ["a", "b", "c", "d"],
+        b: ["a"],
+        c: ["a"],
+        d: ["a", "b", "c", "d"],
+        e: ["a", "d"],
+        f: ["a", "d"],
+        g: ["a", "b", "c", "d"]
+      };
+
+      numbers[7] = {
+        a: ["a", "b", "c", "d"],
+        b: ["d"],
+        c: ["d"],
+        d: ["d"],
+        e: ["d"],
+        f: ["d"],
+        g: ["d"]
+      };
+
+      numbers[8] = {
+        a: ["a", "b", "c", "d"],
+        b: ["a", "d"],
+        c: ["a", "d"],
+        d: ["a", "b", "c", "d"],
+        e: ["a", "d"],
+        f: ["a", "d"],
+        g: ["a", "b", "c", "d"]
+      };
+
+      numbers[9] = {
+        a: ["a", "b", "c", "d"],
+        b: ["a", "d"],
+        c: ["a", "d"],
+        d: ["a", "b", "c", "d"],
+        e: ["d"],
+        f: ["d"],
+        g: ["d"]
+      };
+
+
+      /**
+       * Initialize the counter: Every second make changes
+       * @test
+       *   1 day, 0 hours, 01 mins, 10 seconds
+       */
+      var timeDiff = {
+            days: 1,
+            hours: 0,
+            mins: 1,
+            seconds: 10
+          },
+          count = timeDiff.seconds;
+
+      (function clock () {
+        //self.toggleNumberBulbs(numbers[count]);
+        self.toggleSecondsBulbs(count);
+        if (count === 1) {
+          count = 60;
+        } else {
+          count -= 1;
+        }
+        setTimeout(function () {
+          /**
+           * Subtract a second from the time and decide what numbers are affected
+           * @example
+           *   - 1 day 23 hours 59 mins 59 seconds: Take away one second and only
+           *   the seconds counter is affected.
+           *   - 1 day 00 hours 00 mins 00 seconds: Take away one second and
+           *   seconds change to 59, minutes change to 59, hours change to 23,
+           *   and days change to 0
+           */
+
+          // do work
+          console.log(count);
+          self.toggleSecondsBulbs(count);
+          //self.toggleNumberBulbs(numbers[count]);
+          clock();
+
+        }, 1000);
+
+      })();
+
+
+    },
+
+
+    toggleSecondsBulbs: function (seconds) {
+      var self = this,
+          $second = $('.counter__seconds .counter__bulb[data-second="' + seconds + '"]');
+
+      if (seconds === 1) {
+        $('.counter__seconds .counter__bulb').addClass('on');
+      } else {
+        $second.removeClass('on');
+      }
+
+
+    },
+
+    toggleNumberBulbs: function (number) {
+
+      var self = this;
+
+      /**
+       * Go through all the bulbs in a given counter number
+       * @todo
+       *   - Only do this to the counter numbers that need it in any
+       *   given second that passes.
+       */
+      var $hoursTensRows = $('.hours__tens .counter__bulb');
+      $.each($hoursTensRows, function (k, v) {
+
+        var $self = $(v),
+            data = $self.data(),
+            lat = data.lat,
+            long = data.long;
+
+        /**
+         * Use the long/lat data to decide what bulbs to turn on
+         * @todo:
+         *   - Dynamically pull in the appropriate number definition to use
+         */
+        if ($.inArray(long, number[lat]) !== -1) {
+          $self.addClass('on');
+        } else {
+          $self.removeClass('on');
+        }
+
+
+      });
+
+    },
+
+    onDelegated: function (e) {
 
     },
     events: {
-      'click p' : 'test'
+      // 'click p' : 'test'
     }
   });
 
   //Exports the page module for app.js to use
-  module.exports = {
-    sample: new Sample('body', {
-      optionOne: 'change option one'
-    }),
-    sampletwo: new Sample(document)
-  };
+  module.exports = CounterBoard;
 
 })(jQuery);
 },{"../libs/flyweight":2}]},{},[1]);

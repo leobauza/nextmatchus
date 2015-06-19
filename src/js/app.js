@@ -1,10 +1,6 @@
 "use strict";
 
-var Flyweight, Sample;
+var Flyweight = require('./libs/flyweight'),
+    Sample = require('./modules/sample');
 
-if (typeof require === 'function') {
-  Flyweight = require('./libs/flyweight');
-  Sample = require('./modules/sample');
-}
-
-console.log(Flyweight);
+var sample = new Sample();
