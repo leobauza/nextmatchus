@@ -214,7 +214,7 @@ function makeNumberScreen ($num = 0)
     </ul>
   </div>
 
-  <h5>2015 United States Women's Wolrd Cup Counter</h5>
+  <h5>2015 United States Women's Wolrd Cup Games Countdown</h5>
 
   <a class="footer__brand" href="http://njimedia.com" target="_blank">NJI Media</a>
 
