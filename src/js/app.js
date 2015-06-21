@@ -1,11 +1,13 @@
 "use strict";
 
 var Flyweight = require('./libs/flyweight'),
+    Facts = require('./modules/facts'),
     Clock = require('./modules/clock'),
     Overlay = require('./modules/overlay'),
     Social = require('./modules/social');
 
 
+var facts = new Facts();
 var clock = new Clock();
 var overlay = new Overlay();
 var social = new Social(document, {
