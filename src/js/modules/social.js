@@ -56,6 +56,7 @@
           tweet = '',
           url = 'http://nextmatch.us';
 
+      message = message + " @ussoccer_wnt";
       tweet = "https://twitter.com/share?url=" + encodeURIComponent(url) + "&text=" + message;
 
       self.openIntent(tweet, 540, 420);
