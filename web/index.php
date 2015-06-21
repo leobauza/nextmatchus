@@ -207,7 +207,34 @@ function makeNumberScreen ($num = 0)
 
 <header class="site__header">
   <a id="brand" href="https://www.njimedia.com/team/joshshultz/" target="_blank"><span>Shultz Division</span></a>
-  <a href="#" class="match-facts"><span><i class="f"></i><i class="m"></i><i class="l"></i></span>Match Facts</a>
+  <div href="#" class="match-facts">
+    <a href="#"><span><i class="f"><b></b></i><i class="m"><b></b></i><i class="l"><b></b></i></span>Match Facts</a>
+    <div class="facts__dropdown">
+      <header class="dropdown__header group">
+        <div class="flag-usa country">
+          <i>FLAG</i>
+          <span>Usa</span>
+        </div>
+        <div class="vs"><span>VS</span></div>
+        <div class="flag-col country oponent">
+          <i>FLAG</i>
+          <span>Col</span>
+        </div>
+      </header>
+      <div class="dropdown__body">
+        <i class="icon-stopwatch">clock</i>
+        <p>8:00 pm EST</p>
+        <i class="division-line"></i>
+        <p>22 Jun 2015</p>
+      </div>
+      <footer class="dropdown__footer">
+        <i class="icon-stadium">stadium</i>
+        <p>Commonwealth Stadium</p>
+        <i class="division-line"></i>
+        <p>Edmonton (Can)</p>
+      </footer>
+    </div>
+  </div>
 </header>
 
 

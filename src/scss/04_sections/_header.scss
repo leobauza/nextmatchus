@@ -13,6 +13,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  z-index: 500;
   span {
     position: absolute;
     top: 29px;
@@ -27,17 +28,23 @@
   position: absolute;
   right: 0px;
   top: 0px;
-  font-weight: $boldfont;
-  font-size: 1.4em;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: $text_colour;
-  background: #eac300 url(../img/bg_yellow.jpg) repeat;
-  padding: 17px 35px 16px 64px;
-  &:hover {
+  a {
+    position: relative;
+    z-index: 500;
+    float: right;
+    display: block;
+    font-weight: $boldfont;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     color: $text_colour;
+    background: #eac300 url(../img/bg_yellow.jpg) repeat;
+    padding: 17px 35px 16px 64px;
+    &:hover {
+      color: $text_colour;
+    }
   }
-  span {
+  a > span {
     position: absolute;
     left: 29px;
     top: 50%;
@@ -46,41 +53,53 @@
     width: 18px;
     height: 14px;
     i {
+      @include transition(transform .25s, opacity .25s);
       position: absolute;
       left: 0px;
+      height: 2px;
+      width: 100%;
+    }
+    b {
+      @include transition(transform .25s);
+      display: block;
       background: $text_colour;
       height: 2px;
       width: 100%;
     }
   }
   .f {
-    @include transition(all .25s);
     top: 0px;
   }
   .m {
-    @include transition(all .25s);
     top: 6px;
   }
   .l {
-    @include transition(all .25s);
     top: 12px;
   }
   .do-collapse {
     .f {
-      @include rotate(0deg);
-      top: 6px;
+      @include translate(0px, 6px);
+      b {
+        @include rotate(0deg);
+      }
     }
     .l {
-      @include rotate(0deg);
-      top: 6px;
+      @include translate(0px, -6px);
+      b {
+        @include rotate(0deg);
+      }
     }
   }
   .do-rotate {
     .f {
-      @include rotate(45deg);
+      b {
+        @include rotate(45deg);
+      }
     }
     .l {
-      @include rotate(-45deg);
+      b {
+        @include rotate(-45deg);
+      }
     }
   }
   .do-disappear {
@@ -88,6 +107,120 @@
       opacity: 0;
     }
   }
+}
+
+.facts__dropdown {
+  @include transition(transform .25s);
+  @include translate(0, -100%);
+  position: absolute;
+  visibility: hidden;
+  top: 100%;
+  left: 0px;
+  width: 100%;
+  padding: 27px 0px 37px;
+  background: url(../img/bg_dark_yellow.jpg) 0% 0% repeat;
+  z-index: 100;
+  p {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 6px;
+  }
+  &.do-show {
+    visibility: visible;
+  }
+  &.do-translate {
+    @include translate(0, 0%);
+  }
+}
+.dropdown__header {
+  position: relative;
+  padding: 0px 22px;
+  max-width: 190px;
+  margin: 0px auto 19px;
+  .vs {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -15px;
+    span {
+      display: block;
+      font-size: 1.2em;
+      font-weight: $semiboldfont;
+      text-align: center;
+      padding: 9px 0px;
+    }
+  }
+  .country {
+    width: 39px;
+    font-size: 1.2em;
+    font-weight: $semiboldfont;
+    text-transform: uppercase;
+    text-align: center;
+    float: left;
+    &.oponent {
+      float: right;
+    }
+    span {
+      display: block;
+    }
+    i {
+      margin-bottom: 10px;
+    }
+  }
+
+}
+.dropdown__body {
+  margin-bottom: 33px;
+  padding: 0px 22px;
+  i {
+    margin: 0 auto;
+  }
+  .icon-stopwatch {
+    margin-bottom: 10px;
+  }
+}
+.dropdown__footer {
+  padding: 0px 22px;
+  i {
+    margin: 0 auto;
+  }
+  .icon-stadium {
+    margin-bottom: 10px;
+  }
+}
+.division-line {
+  display: block;
+  width: 18px;
+  height: 0px;
+  border-top: 1px solid $text_colour;
+  padding-bottom: 8px;
+}
+.vs {
+  display: block;
+  @include sprite($icon_diamond);
+}
+.flag {
+  &-usa i {
+    display: block;
+    text-indent: -99999px;
+    @include sprite($flag_usa);
+  }
+  &-col i {
+    display: block;
+    text-indent: -99999px;
+    @include sprite($flag_col);
+  }
+}
+.icon-stopwatch {
+  display: block;
+  text-indent: -99999px;
+  @include sprite($icon_stopwatch);
+}
+.icon-stadium {
+  display: block;
+  text-indent: -99999px;
+  @include sprite($icon_stadium);
 }
 
 @media (max-width: 53.125em) { // 850px
@@ -98,17 +231,21 @@
     background: url(../img/bg_yellow.jpg) 0% 0% repeat-x;
   }
   #brand {
+    width: 100%;
     height: 50px;
-    background: none;
+    background: url(../img/bg_yellow.jpg) 0% 0% repeat-x;
     span {
       top: 8px;
       left: 10px;
     }
   }
   .match-facts {
-    font-size: 1.3em;
-    letter-spacing: 1px;
-    padding: 17px 15px 16px 64px;
+    width: 100%;
+    a {
+      font-size: 1.3em;
+      letter-spacing: 1px;
+      padding: 17px 15px 16px 64px;
+    }
   }
 
 

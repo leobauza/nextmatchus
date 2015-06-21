@@ -25,7 +25,7 @@
       self.animating = false;
     },
 
-    openFacts: function (e) {
+    toggleFacts: function (e) {
 
       e.preventDefault();
       var self = e.data.context,
@@ -62,6 +62,7 @@
         if (reverse) {
           $('.match-facts span')[method]('do-disappear');
         }
+        self.toggleDropdown(reverse, t);
       }, timeout);
 
       /**
@@ -73,8 +74,27 @@
 
     },
 
+    toggleDropdown: function (reverse, t) {
+
+      var self = this,
+          classes = (reverse)? ['do-translate', 'do-show'] : ['do-show', 'do-translate'],
+          method = (reverse)? 'removeClass' : 'addClass',
+          timeout = t || 250;
+
+      if (!reverse) {
+        timeout = 10;
+      }
+
+      $('.facts__dropdown')[method](classes[0]);
+
+      setTimeout(function () {
+        $('.facts__dropdown')[method](classes[1]);
+      }, timeout);
+
+    },
+
     events: {
-      "click .match-facts": "openFacts",
+      "click .match-facts a": "toggleFacts",
     }
 
   });
