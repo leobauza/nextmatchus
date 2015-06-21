@@ -3,6 +3,31 @@
 <?php
 date_default_timezone_set ('America/New_York');
 
+
+/**
+ * Master Array
+ */
+$raw_date = '2015-06-22 20:00:00';
+$raw_time = strtotime($raw_date);
+$data = array(
+  'opponent' => array(
+    'country_name' => 'Colombia',
+    'country_code' => 'col',
+  ),
+  'date_time' => array(
+    'raw' => $raw_date,
+    'est' => date('g:i A', $raw_time),
+    'date' => date('d M Y', $raw_time),
+  ),
+  'location' => array(
+    'stadium' => 'Commonwealth Stadium',
+    'city' => 'Edmonton',
+    'country_code' => 'can',
+    'country_name' => 'Canada',
+  ),
+);
+
+
 /**
  * Get the moment the client loads the site
  * Get the moment of the next match
@@ -10,7 +35,7 @@ date_default_timezone_set ('America/New_York');
  * Compare the two
  */
 $today = date('Y-m-d H:i:s');
-$date = date('Y-m-d H:i:s e', strtotime('2015-06-22 20:00:00'));
+$date = date('Y-m-d H:i:s e', $raw_time);
 $date2 = new DateTime($today);
 $date1 = new DateTime($date);
 $interval = $date1->diff($date2, false);
@@ -216,28 +241,26 @@ function makeNumberScreen ($num = 0)
           <span>Usa</span>
         </div>
         <div class="vs"><span>VS</span></div>
-        <div class="flag-col country oponent">
+        <div class="flag-<?php print $data['opponent']['country_code']; ?> country oponent">
           <i>FLAG</i>
-          <span>Col</span>
+          <span><?php print $data['opponent']['country_code']; ?></span>
         </div>
       </header>
       <div class="dropdown__body">
         <i class="icon-stopwatch">clock</i>
-        <p>8:00 pm EST</p>
+        <p><?php print $data['date_time']['est']; ?> EST</p>
         <i class="division-line"></i>
-        <p>22 Jun 2015</p>
+        <p><?php print $data['date_time']['date']; ?></p>
       </div>
       <footer class="dropdown__footer">
         <i class="icon-stadium">stadium</i>
-        <p>Commonwealth Stadium</p>
+        <p><?php print $data['location']['stadium']; ?></p>
         <i class="division-line"></i>
-        <p>Edmonton (Can)</p>
+        <p><?php print $data['location']['city']; ?> (<?php print $data['location']['country_code']; ?>)</p>
       </footer>
     </div>
   </div>
 </header>
-
-
 
 <section class="site__main">
 
@@ -246,7 +269,7 @@ function makeNumberScreen ($num = 0)
       <i class="shield"></i>
       <i class="ball"></i>
     </div>
-    <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs Colombia Begins In</h2>
+    <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs <?php print $data['opponent']['country_name']; ?> Begins In</h2>
   </header>
 
   <section class="ref-wrap">
