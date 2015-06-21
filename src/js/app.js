@@ -18,6 +18,7 @@ var social = new Social(document, {
 function heightAdjustments() {
 
   var winHeight = $(window).height(),
+      winWidth = $(window).width(),
       bottomVal = parseInt($('.ref-wrap').css('bottom')),
       diff = 0;
 
@@ -35,11 +36,21 @@ function heightAdjustments() {
     });
   }
 
-
   $(window).resize(function () {
 
     var newHeight = $(window).height(),
+        newWidth = $(window).width(),
         throttle = Math.abs(newHeight - winHeight) > 20;
+
+    if (winWidth > 850 && newWidth <= 850) {
+      throttle = true;
+      winWidth = newWidth;
+      bottomVal = -250;
+    } else if (winWidth <= 850 && newWidth > 850) {
+      throttle = true;
+      winWidth = newWidth;
+      bottomVal = -350;
+    }
 
     if (newHeight < 1000 && throttle) {
       diff = 1000 - newHeight;
