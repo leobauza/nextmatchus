@@ -5,12 +5,6 @@
 .site__header {
   position: relative;
   padding: 29px 0px 30px;
-  h2 {
-    text-align: center;
-  }
-  h2 {
-    margin-bottom: 25px;
-  }
   z-index: 300;
 }
 #brand {
@@ -19,6 +13,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  z-index: 500;
   span {
     position: absolute;
     top: 29px;
@@ -28,57 +23,216 @@
     @include sprite($logo_shultz_division);
   }
 }
-.info-link {
+
+.match-facts {
   position: absolute;
-  top: 35px;
-  right: 35px;
-  font-size: 1.2em;
-  color: $text_colour;
-  font-weight: $semiboldfont;
-  padding: 0px 37px 0px 0px;
-  &:hover {
-    color: $text_colour;
-  }
-  i {
-    position: absolute;
-    top: 50%;
-    right: 0px;
-    margin-top: -12px;
+  right: 0px;
+  top: 0px;
+  a {
+    position: relative;
+    z-index: 500;
+    float: right;
     display: block;
-    @include sprite($icon_info);
+    font-weight: $boldfont;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $text_colour;
+    background: #eac300 url(../img/bg_yellow.jpg) repeat;
+    padding: 17px 35px 16px 64px;
+    &:hover {
+      color: $text_colour;
+    }
+    &.is-on {
+      background: #bf2722 url(../img/bg_red.jpg) repeat;
+    }
+  }
+  a > span {
+    position: absolute;
+    left: 29px;
+    top: 50%;
+    margin-top: -7px;
+    display: block;
+    width: 18px;
+    height: 14px;
+    i {
+      @include transition(all .25s);
+      position: absolute;
+      display: block;
+      left: 0px;
+      height: 2px;
+      width: 100%;
+    }
+    b {
+      @include transition(all .25s);
+      display: block;
+      background: $text_colour;
+      height: 2px;
+      width: 100%;
+    }
+  }
+  .f {
+    top: 0px;
+  }
+  .m {
+    top: 6px;
+  }
+  .l {
+    top: 12px;
+  }
+  .do-collapse {
+    .f {
+      @include translate(0%, 6px);
+      b {
+        @include rotate(0deg);
+      }
+    }
+    .l {
+      @include translate(0%, -6px);
+      b {
+        @include rotate(0deg);
+      }
+    }
+  }
+  .do-rotate {
+    .f {
+      b {
+        @include rotate(45deg);
+      }
+    }
+    .l {
+      b {
+        @include rotate(-45deg);
+      }
+    }
+  }
+  .do-disappear {
+    .m {
+      opacity: 0;
+    }
   }
 }
-.usa-icons {
-  @extend %group;
-  width: 100px;
-  margin: 0 auto 27px;
-  i {
-    display: block;
+
+.facts__dropdown {
+  @include transition(all .25s);
+  @include translate(0%, -100%);
+  position: absolute;
+  visibility: hidden;
+  top: 100%;
+  left: 0px;
+  width: 100%;
+  padding: 27px 0px 37px;
+  background: url(../img/bg_dark_yellow.jpg) 0% 0% repeat;
+  z-index: 100;
+  p {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 6px;
+  }
+  &.do-show {
+    visibility: visible;
+  }
+  &.do-translate {
+    @include translate(0%, 0%);
+  }
+}
+.dropdown__header {
+  position: relative;
+  padding: 0px 22px;
+  max-width: 190px;
+  margin: 0px auto 19px;
+  .vs {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -15px;
+    span {
+      display: block;
+      font-size: 1.2em;
+      font-weight: $semiboldfont;
+      text-align: center;
+      padding: 9px 0px;
+    }
+  }
+  .country {
+    width: 39px;
+    font-size: 1.4em;
+    font-weight: $semiboldfont;
+    text-transform: uppercase;
+    text-align: center;
     float: left;
-    margin: 0 11px;
+    &.oponent {
+      float: right;
+    }
+    span {
+      display: block;
+    }
+    i {
+      margin-bottom: 10px;
+    }
   }
-  .shield {
-    @include sprite($icon_shield);
+
+}
+.dropdown__body {
+  margin-bottom: 33px;
+  padding: 0px 22px;
+  i {
+    margin: 0 auto;
   }
-  .ball {
-    @include sprite($icon_ball);
+  .icon-stopwatch {
+    margin-bottom: 10px;
   }
+}
+.dropdown__footer {
+  padding: 0px 22px;
+  i {
+    margin: 0 auto;
+  }
+  .icon-stadium {
+    margin-bottom: 10px;
+  }
+}
+.division-line {
+  display: block;
+  width: 18px;
+  height: 0px;
+  border-top: 1px solid $text_colour;
+  padding-bottom: 8px;
+}
+.vs {
+  display: block;
+  @include sprite($icon_diamond);
+}
+.flag {
+  &-usa i {
+    display: block;
+    text-indent: -99999px;
+    @include sprite($flag_usa);
+  }
+  &-col i {
+    display: block;
+    text-indent: -99999px;
+    @include sprite($flag_col);
+  }
+}
+.icon-stopwatch {
+  display: block;
+  text-indent: -99999px;
+  @include sprite($icon_stopwatch);
+}
+.icon-stadium {
+  display: block;
+  text-indent: -99999px;
+  @include sprite($icon_stadium);
 }
 
 @media (max-width: 53.125em) { // 850px
 
   .site__header {
-    padding: 60px 0px 30px;
-    h2 {
-      font-size: 2em;
-    }
-  }
-  .usa-icons {
-    margin: 0 auto 10px;
-  }
-  .info-link {
-    top: 16px;
-    right: 10px;
+    height: 50px;
+    padding: 0px;
+    background: url(../img/bg_yellow.jpg) 0% 0% repeat-x;
   }
   #brand {
     width: 100%;
@@ -87,6 +241,14 @@
     span {
       top: 8px;
       left: 10px;
+    }
+  }
+  .match-facts {
+    width: 100%;
+    a {
+      font-size: 1.3em;
+      letter-spacing: 1px;
+      padding: 17px 15px 16px 64px;
     }
   }
 

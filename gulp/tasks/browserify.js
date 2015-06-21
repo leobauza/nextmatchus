@@ -55,7 +55,7 @@ gulp.task('browserify', function () {
         .pipe(bundle)
         .on('error', handleErrors)
         .pipe(rename(bundleConfig.outputName))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest(bundleConfig.dest))
         .on('end', function () {
           bundleLogger.end(theFile);

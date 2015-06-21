@@ -3,34 +3,77 @@
 <?php
 date_default_timezone_set ('America/New_York');
 
+
+/**
+ * Master Array
+ */
+$raw_date = '2015-06-22 20:00:00';
+$raw_time = strtotime($raw_date);
+$data = array(
+  'opponent' => array(
+    'country_name' => 'Colombia',
+    'country_code' => 'col',
+  ),
+  'date_time' => array(
+    'raw' => $raw_date,
+    'est' => date('g:i A', $raw_time),
+    'date' => date('d M Y', $raw_time),
+  ),
+  'location' => array(
+    'stadium' => 'Commonwealth Stadium',
+    'city' => 'Edmonton',
+    'country_code' => 'can',
+    'country_name' => 'Canada',
+  ),
+);
+
+
+/**
+ * Get the moment the client loads the site
+ * Get the moment of the next match
+ * Make both into DateTime objects
+ * Compare the two
+ */
 $today = date('Y-m-d H:i:s');
-$date = date('Y-m-d H:i:s e', strtotime('2015-06-22 20:00:00'));
-
-// print "<pre>";
-// print $today;
-// print "</pre>";
-
+$date = date('Y-m-d H:i:s e', $raw_time);
 $date2 = new DateTime($today);
 $date1 = new DateTime($date);
 $interval = $date1->diff($date2, false);
 
+/**
+ * Compare the dates to make sure it is in the future
+ * @todo
+ *   - Actually compare stuff
+ *   - This should actually be in a loop with a bunch of dates
+ *     to compare before making the DateTime objects? Compare
+ *     unix timestamps probably
+ */
 if ($date1 > $date2) {
   // print "difference " . $interval->d . " days " . $interval->h . " hours " . $interval->i . " minutes " . $interval->s . " seconds<br>";
   // you want to use this...
 }
 
+
+/**
+ * Create arrays for hours and minutes
+ * The counter requires these numbers separately for efficiency.
+ * If the number is under ten then the first number is 0
+ */
 if ($interval->h < 10) {
   $hoursTil =  array(0, $interval->h);
 } else {
   $hoursTil =  str_split($interval->h);
 }
-
 if ($interval->i < 10) {
   $minsTil =  array(0, $interval->i);
 } else {
   $minsTil =  str_split($interval->i);
 }
 
+/**
+ * The array containing the time difference the counter will use
+ * @var array
+ */
 $time_diff = array(
   "days" => $interval->d,
   "hours" => $hoursTil,
@@ -38,11 +81,14 @@ $time_diff = array(
   "seconds" => ($interval->s === 0)? 60 : $interval->s,
 );
 
-// print_r($time_diff);
-// echo "difference " . $interval->days . " days <br>";
+// For reference
 // print "difference " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days <br>";
 
-
+/**
+ * Outputs the markup for a single number screen
+ * @param  integer $num The number the screen should display
+ * @return string       Markup for a single number screen
+ */
 function makeNumberScreen ($num = 0)
 {
 
@@ -184,18 +230,48 @@ function makeNumberScreen ($num = 0)
 
 ?>
 
-
 <header class="site__header">
   <a id="brand" href="https://www.njimedia.com/team/joshshultz/" target="_blank"><span>Shultz Division</span></a>
-  <div class="usa-icons">
-    <i class="shield"></i>
-    <i class="ball"></i>
+  <div href="#" class="match-facts">
+    <a href="#"><span><i class="f"><b></b></i><i class="m"><b></b></i><i class="l"><b></b></i></span>Match Facts</a>
+    <div class="facts__dropdown">
+      <header class="dropdown__header group">
+        <div class="flag-usa country">
+          <i>FLAG</i>
+          <span>Usa</span>
+        </div>
+        <div class="vs"><span>VS</span></div>
+        <div class="flag-<?php print $data['opponent']['country_code']; ?> country oponent">
+          <i>FLAG</i>
+          <span><?php print $data['opponent']['country_code']; ?></span>
+        </div>
+      </header>
+      <div class="dropdown__body">
+        <i class="icon-stopwatch">clock</i>
+        <p><?php print $data['date_time']['est']; ?> EST</p>
+        <i class="division-line"></i>
+        <p><?php print $data['date_time']['date']; ?></p>
+      </div>
+      <footer class="dropdown__footer">
+        <i class="icon-stadium">stadium</i>
+        <p><?php print $data['location']['stadium']; ?></p>
+        <i class="division-line"></i>
+        <p><?php print $data['location']['city']; ?> (<?php print $data['location']['country_code']; ?>)</p>
+      </footer>
+    </div>
   </div>
-  <h2>The <a href="#" class="do-tweet">#USWNT</a> Next Match Begins In</h2>
-  <a class="info-link" href="#">What's This?<i></i></a>
 </header>
 
 <section class="site__main">
+
+  <header class="main__header">
+    <div class="usa-icons">
+      <i class="shield"></i>
+      <i class="ball"></i>
+    </div>
+    <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs <?php print $data['opponent']['country_name']; ?> Begins In</h2>
+  </header>
+
   <section class="ref-wrap">
     <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
     <section class="counter-wrap">
@@ -203,6 +279,11 @@ function makeNumberScreen ($num = 0)
     </section>
     <div class="ref"></div>
   </section>
+
+  <footer class="main__footer">
+    <a class="info-link" href="#">What's This?<i></i></a>
+  </footer>
+
 </section>
 
 <footer class="site__footer">

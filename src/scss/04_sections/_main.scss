@@ -9,8 +9,32 @@
   bottom: 0px;
   //left: 50%;
   //margin-left: -224px;
-  @include square(100%, 1180px);
+  @include square(100%, 100%);
   z-index: 100;
+}
+
+.main__header {
+  padding: 40px 0px 0px;
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+}
+.usa-icons {
+  @extend %group;
+  width: 100px;
+  margin: 0 auto 27px;
+  i {
+    display: block;
+    float: left;
+    margin: 0 11px;
+  }
+  .shield {
+    @include sprite($icon_shield);
+  }
+  .ball {
+    @include sprite($icon_ball);
+  }
 }
 
 // Wrap Everything and Ref
@@ -149,13 +173,124 @@
   }
 }
 
-@media (max-width: 53.125em) { // 850px
-  .counter__days {
-    font-size: 1.8em;
-    margin: -35px 0px 0px 0px;
+.main__footer {
+  position: absolute;
+  bottom: 79px;
+  right: 35px;
+}
+
+.info-link {
+  font-size: 1.2em;
+  color: $text_colour;
+  font-weight: $semiboldfont;
+  padding: 0px 37px 0px 0px;
+  &:hover {
+    color: $text_colour;
   }
+  i {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    margin-top: -12px;
+    display: block;
+    @include sprite($icon_info);
+  }
+}
+
+@media (max-width: 53.125em) { // 850px
+
+  .counter__days {
+    font-size: 1.6em;
+    margin: -20px 0px 0px 0px;
+  }
+
+  .main__header {
+    padding: 60px 0px 0px;
+    h2 {
+      font-size: 1.8em;
+      line-height: 1.2em;
+      letter-spacing: 2px;
+      padding: 0 5px;
+    }
+  }
+
+  .usa-icons {
+    margin: 0 auto 5px;
+  }
+
+  .main__footer {
+    bottom: 50px;
+    right: 5px;
+    // left: 50%;
+    // right: auto;
+    // margin-left: -48px;
+  }
+
+  .info-link {
+    top: 16px;
+    right: 10px;
+  }
+
   .ref-wrap {
-    bottom: -325px;
+    bottom: -250px;
+    height: 1080px;
+    margin-left: -190px;
+    width: 380px;
+  }
+  .ref {
+    width: 380px;
+    background-size: 100%;
+  }
+  .counter-wrap {
+    width: 262px;
+    padding: 0px 25px 10px;
+    margin-left: -156px;
+  }
+  .counter__main {
+    @include square(262px, auto);
+    padding-top: 10px;
+    padding-bottom: 2px;
+    margin: 0px auto 7px;
+    h6 {
+      padding: 3px 0px 0px;
+      margin: 0px;
+    }
+  }
+
+  // NUMBERS (hours and minutes details)
+  .counter__number {
+    width: 60px;
+    padding: 0 2px;
+  }
+  .counter__hours {
+    padding-left: 3px;
+  }
+  .counter__minutes {
+    padding-right: 3px;
+  }
+
+  // Individual Bulbs and Rows of Bulbs
+  .counter__row {
+    margin: 0 auto 3px;
+  }
+  .counter__bulb {
+    @include square(11px, 11px);
+    i {
+      @include square(4px, 4px);
+    }
+  }
+
+  // Seconds
+  .counter__seconds {
+    width: 217px;
+    padding: 4px 0px 2px;
+    .counter__bulb {
+      width: 4px;
+    }
+  }
+  .seconds__row {
+    @extend %group;
+    margin: 0 0px 3px 5px;
   }
 
 }

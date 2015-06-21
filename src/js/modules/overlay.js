@@ -35,7 +35,7 @@
       setTimeout(function () {
         $('.overlay').addClass('move');
 
-      }, 10);
+      }, 50);
 
       setTimeout(function () {
         self.moving = false;
