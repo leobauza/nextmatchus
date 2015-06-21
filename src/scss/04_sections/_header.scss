@@ -43,6 +43,9 @@
     &:hover {
       color: $text_colour;
     }
+    &.is-on {
+      background: #bf2722 url(../img/bg_red.jpg) repeat;
+    }
   }
   a > span {
     position: absolute;
@@ -53,14 +56,15 @@
     width: 18px;
     height: 14px;
     i {
-      @include transition(transform .25s, opacity .25s);
+      @include transition(all .25s);
       position: absolute;
+      display: block;
       left: 0px;
       height: 2px;
       width: 100%;
     }
     b {
-      @include transition(transform .25s);
+      @include transition(all .25s);
       display: block;
       background: $text_colour;
       height: 2px;
@@ -78,13 +82,13 @@
   }
   .do-collapse {
     .f {
-      @include translate(0px, 6px);
+      @include translate(0%, 6px);
       b {
         @include rotate(0deg);
       }
     }
     .l {
-      @include translate(0px, -6px);
+      @include translate(0%, -6px);
       b {
         @include rotate(0deg);
       }
@@ -110,8 +114,8 @@
 }
 
 .facts__dropdown {
-  @include transition(transform .25s);
-  @include translate(0, -100%);
+  @include transition(all .25s);
+  @include translate(0%, -100%);
   position: absolute;
   visibility: hidden;
   top: 100%;
@@ -123,14 +127,14 @@
   p {
     text-transform: uppercase;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-bottom: 6px;
   }
   &.do-show {
     visibility: visible;
   }
   &.do-translate {
-    @include translate(0, 0%);
+    @include translate(0%, 0%);
   }
 }
 .dropdown__header {
@@ -153,7 +157,7 @@
   }
   .country {
     width: 39px;
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: $semiboldfont;
     text-transform: uppercase;
     text-align: center;

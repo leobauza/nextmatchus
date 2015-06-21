@@ -200,7 +200,7 @@
 @media (max-width: 53.125em) { // 850px
 
   .counter__days {
-    font-size: 1.3em;
+    font-size: 1.6em;
     margin: -20px 0px 0px 0px;
   }
 
@@ -220,9 +220,10 @@
 
   .main__footer {
     bottom: 50px;
-    left: 50%;
-    right: auto;
-    margin-left: -48px;
+    right: 5px;
+    // left: 50%;
+    // right: auto;
+    // margin-left: -48px;
   }
 
   .info-link {

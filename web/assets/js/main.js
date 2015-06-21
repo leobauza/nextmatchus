@@ -866,9 +866,11 @@ setTimeout(function () {
       self.animating = true;
 
       if (self.button === 0) {
+        $this.addClass('is-on');
         self.buttonAnimation();
         self.button = 1;
       } else {
+        $this.removeClass('is-on');
         self.buttonAnimation(true);
         self.button = 0;
       }
