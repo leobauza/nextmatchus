@@ -22,26 +22,6 @@
     @include sprite($logo_shultz_division);
   }
 }
-.info-link {
-  position: absolute;
-  top: 35px;
-  right: 35px;
-  font-size: 1.2em;
-  color: $text_colour;
-  font-weight: $semiboldfont;
-  padding: 0px 37px 0px 0px;
-  &:hover {
-    color: $text_colour;
-  }
-  i {
-    position: absolute;
-    top: 50%;
-    right: 0px;
-    margin-top: -12px;
-    display: block;
-    @include sprite($icon_info);
-  }
-}
 
 @media (max-width: 53.125em) { // 850px
 
@@ -49,10 +29,6 @@
     height: 50px;
     padding: 0px;
     background: url(../img/bg_yellow.jpg) 0% 0% repeat-x;
-  }
-  .info-link {
-    top: 16px;
-    right: 10px;
   }
   #brand {
     height: 50px;

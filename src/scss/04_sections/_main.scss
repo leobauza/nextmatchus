@@ -173,6 +173,30 @@
   }
 }
 
+.main__footer {
+  position: absolute;
+  bottom: 79px;
+  right: 35px;
+}
+
+.info-link {
+  font-size: 1.2em;
+  color: $text_colour;
+  font-weight: $semiboldfont;
+  padding: 0px 37px 0px 0px;
+  &:hover {
+    color: $text_colour;
+  }
+  i {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    margin-top: -12px;
+    display: block;
+    @include sprite($icon_info);
+  }
+}
+
 @media (max-width: 53.125em) { // 850px
 
   .counter__days {
@@ -192,6 +216,18 @@
 
   .usa-icons {
     margin: 0 auto 5px;
+  }
+
+  .main__footer {
+    bottom: 50px;
+    left: 50%;
+    right: auto;
+    margin-left: -48px;
+  }
+
+  .info-link {
+    top: 16px;
+    right: 10px;
   }
 
   .ref-wrap {

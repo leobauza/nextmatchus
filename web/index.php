@@ -207,7 +207,6 @@ function makeNumberScreen ($num = 0)
 
 <header class="site__header">
   <a id="brand" href="https://www.njimedia.com/team/joshshultz/" target="_blank"><span>Shultz Division</span></a>
-  <a class="info-link" href="#">What's This?<i></i></a>
 </header>
 
 
@@ -229,6 +228,11 @@ function makeNumberScreen ($num = 0)
     </section>
     <div class="ref"></div>
   </section>
+
+  <footer class="main__footer">
+    <a class="info-link" href="#">What's This?<i></i></a>
+  </footer>
+
 </section>
 
 <footer class="site__footer">
