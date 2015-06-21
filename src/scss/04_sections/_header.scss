@@ -46,16 +46,17 @@
 @media (max-width: 53.125em) { // 850px
 
   .site__header {
-    padding: 60px 0px 30px;
+    height: 50px;
+    padding: 0px;
+    background: url(../img/bg_yellow.jpg) 0% 0% repeat-x;
   }
   .info-link {
     top: 16px;
     right: 10px;
   }
   #brand {
-    width: 100%;
     height: 50px;
-    background: url(../img/bg_yellow.jpg) 0% 0% repeat-x;
+    background: none;
     span {
       top: 8px;
       left: 10px;
