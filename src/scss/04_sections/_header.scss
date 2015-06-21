@@ -5,12 +5,6 @@
 .site__header {
   position: relative;
   padding: 29px 0px 30px;
-  h2 {
-    text-align: center;
-  }
-  h2 {
-    margin-bottom: 25px;
-  }
   z-index: 300;
 }
 #brand {
@@ -48,22 +42,6 @@
     @include sprite($icon_info);
   }
 }
-.usa-icons {
-  @extend %group;
-  width: 100px;
-  margin: 0 auto 27px;
-  i {
-    display: block;
-    float: left;
-    margin: 0 11px;
-  }
-  .shield {
-    @include sprite($icon_shield);
-  }
-  .ball {
-    @include sprite($icon_ball);
-  }
-}
 
 @media (max-width: 53.125em) { // 850px
 
@@ -73,9 +51,9 @@
       font-size: 2em;
     }
   }
-  .usa-icons {
-    margin: 0 auto 10px;
-  }
+  // .usa-icons {
+  //   margin: 0 auto 10px;
+  // }
   .info-link {
     top: 16px;
     right: 10px;

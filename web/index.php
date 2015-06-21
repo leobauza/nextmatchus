@@ -3,34 +3,52 @@
 <?php
 date_default_timezone_set ('America/New_York');
 
+/**
+ * Get the moment the client loads the site
+ * Get the moment of the next match
+ * Make both into DateTime objects
+ * Compare the two
+ */
 $today = date('Y-m-d H:i:s');
 $date = date('Y-m-d H:i:s e', strtotime('2015-06-22 20:00:00'));
-
-// print "<pre>";
-// print $today;
-// print "</pre>";
-
 $date2 = new DateTime($today);
 $date1 = new DateTime($date);
 $interval = $date1->diff($date2, false);
 
+/**
+ * Compare the dates to make sure it is in the future
+ * @todo
+ *   - Actually compare stuff
+ *   - This should actually be in a loop with a bunch of dates
+ *     to compare before making the DateTime objects? Compare
+ *     unix timestamps probably
+ */
 if ($date1 > $date2) {
   // print "difference " . $interval->d . " days " . $interval->h . " hours " . $interval->i . " minutes " . $interval->s . " seconds<br>";
   // you want to use this...
 }
 
+
+/**
+ * Create arrays for hours and minutes
+ * The counter requires these numbers separately for efficiency.
+ * If the number is under ten then the first number is 0
+ */
 if ($interval->h < 10) {
   $hoursTil =  array(0, $interval->h);
 } else {
   $hoursTil =  str_split($interval->h);
 }
-
 if ($interval->i < 10) {
   $minsTil =  array(0, $interval->i);
 } else {
   $minsTil =  str_split($interval->i);
 }
 
+/**
+ * The array containing the time difference the counter will use
+ * @var array
+ */
 $time_diff = array(
   "days" => $interval->d,
   "hours" => $hoursTil,
@@ -38,11 +56,14 @@ $time_diff = array(
   "seconds" => ($interval->s === 0)? 60 : $interval->s,
 );
 
-// print_r($time_diff);
-// echo "difference " . $interval->days . " days <br>";
+// For reference
 // print "difference " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days <br>";
 
-
+/**
+ * Outputs the markup for a single number screen
+ * @param  integer $num The number the screen should display
+ * @return string       Markup for a single number screen
+ */
 function makeNumberScreen ($num = 0)
 {
 
@@ -184,18 +205,23 @@ function makeNumberScreen ($num = 0)
 
 ?>
 
-
 <header class="site__header">
   <a id="brand" href="https://www.njimedia.com/team/joshshultz/" target="_blank"><span>Shultz Division</span></a>
-  <div class="usa-icons">
-    <i class="shield"></i>
-    <i class="ball"></i>
-  </div>
-  <h2>The <a href="#" class="do-tweet">#USWNT</a> Next Match Begins In</h2>
   <a class="info-link" href="#">What's This?<i></i></a>
 </header>
 
+
+
 <section class="site__main">
+
+  <header class="main__header">
+    <div class="usa-icons">
+      <i class="shield"></i>
+      <i class="ball"></i>
+    </div>
+    <h2>The <a href="#" class="do-tweet">#USWNT</a> Next Match Begins In</h2>
+  </header>
+
   <section class="ref-wrap">
     <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
     <section class="counter-wrap">

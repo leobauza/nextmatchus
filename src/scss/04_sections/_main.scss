@@ -9,8 +9,32 @@
   bottom: 0px;
   //left: 50%;
   //margin-left: -224px;
-  @include square(100%, 1180px);
+  @include square(100%, 100%);
   z-index: 100;
+}
+
+.main__header {
+  padding: 40px 0px 0px;
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+}
+.usa-icons {
+  @extend %group;
+  width: 100px;
+  margin: 0 auto 27px;
+  i {
+    display: block;
+    float: left;
+    margin: 0 11px;
+  }
+  .shield {
+    @include sprite($icon_shield);
+  }
+  .ball {
+    @include sprite($icon_ball);
+  }
 }
 
 // Wrap Everything and Ref
