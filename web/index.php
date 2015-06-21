@@ -308,7 +308,7 @@ function makeNumberScreen ($num = 0)
     <i class="flag">flag</i>
     <h3 class="subtitle">Support Your Squad</h3>
     <h3 class="motto">With this counter you'll never miss another match</h3>
-    <p>The kind hearted souls at the NJI Media's Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
+    <p>The kind hearted souls at NJI Media's Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
     <ul class="overlay__social">
       <li><a class="btn--main facebook do-share" href="#"><i></i>Share</a></li>
       <li><a class="btn--main twitter do-tweet" href="#"><i></i>Share</a></li>
