@@ -174,12 +174,86 @@
 }
 
 @media (max-width: 53.125em) { // 850px
+
   .counter__days {
-    font-size: 1.8em;
-    margin: -35px 0px 0px 0px;
+    font-size: 1.3em;
+    margin: -20px 0px 0px 0px;
   }
+
+  .main__header {
+    padding: 60px 0px 0px;
+    h2 {
+      font-size: 1.8em;
+      line-height: 1.2em;
+      letter-spacing: 2px;
+      padding: 0 5px;
+    }
+  }
+
+  .usa-icons {
+    margin: 0 auto 5px;
+  }
+
   .ref-wrap {
-    bottom: -325px;
+    bottom: -250px;
+    height: 1080px;
+    margin-left: -190px;
+    width: 380px;
+  }
+  .ref {
+    width: 380px;
+    background-size: 100%;
+  }
+  .counter-wrap {
+    width: 262px;
+    padding: 0px 25px 10px;
+    margin-left: -156px;
+  }
+  .counter__main {
+    @include square(262px, auto);
+    padding-top: 10px;
+    padding-bottom: 2px;
+    margin: 0px auto 7px;
+    h6 {
+      padding: 3px 0px 0px;
+      margin: 0px;
+    }
+  }
+
+  // NUMBERS (hours and minutes details)
+  .counter__number {
+    width: 60px;
+    padding: 0 2px;
+  }
+  .counter__hours {
+    padding-left: 3px;
+  }
+  .counter__minutes {
+    padding-right: 3px;
+  }
+
+  // Individual Bulbs and Rows of Bulbs
+  .counter__row {
+    margin: 0 auto 3px;
+  }
+  .counter__bulb {
+    @include square(11px, 11px);
+    i {
+      @include square(4px, 4px);
+    }
+  }
+
+  // Seconds
+  .counter__seconds {
+    width: 217px;
+    padding: 4px 0px 2px;
+    .counter__bulb {
+      width: 4px;
+    }
+  }
+  .seconds__row {
+    @extend %group;
+    margin: 0 0px 3px 5px;
   }
 
 }

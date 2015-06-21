@@ -219,7 +219,7 @@ function makeNumberScreen ($num = 0)
       <i class="shield"></i>
       <i class="ball"></i>
     </div>
-    <h2>The <a href="#" class="do-tweet">#USWNT</a> Next Match Begins In</h2>
+    <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs Colombia Begins In</h2>
   </header>
 
   <section class="ref-wrap">

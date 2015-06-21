@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="The Shultz Division US Women's Soccer Team Game Countdown">
   <meta name="author" content="The Shultz Division and NJI Media">
-
   <script src="//use.typekit.net/imc3isn.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
 
