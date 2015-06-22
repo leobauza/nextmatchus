@@ -66,18 +66,45 @@
     createMessage: function (timeDiff, encode) {
 
       var days = timeDiff.days.toString(),
-          hours = timeDiff.hours.join(''),
-          mins = timeDiff.mins.join(''),
-          seconds = timeDiff.seconds.toString(),
+          hours = timeDiff.hours.join('').replace(/^0+/, ''),
+          mins = timeDiff.mins.join('').replace(/^0+/, ''),
+          seconds = timeDiff.seconds.toString().replace(/^0+/, ''),
           message = '';
 
-      message = "The #USWNT next match begins in ";
-      message += (days === '1')? '1 day ' : days + " days ";
-      message += (hours === '1')? '1 hour ' : hours + " hours ";
-      message += (mins === '1')? '1 minute ' : mins + " minutes ";
-      message += "and ";
-      message += (seconds === '1')? '1 second' : seconds + " seconds";
-      message += " #WomensWorldCup";
+      // cut it off if the game is on
+      if (hours === '' && mins === '' && seconds === '') {
+        message = 'The #USWNT match is on right now! What are you doing? Go WATCH! #WomensWorldCup';
+        return encodeURIComponent(message);
+      }
+
+      message = "Only ";
+      //message = "The #USWNT next match begins in ";
+      if (days !== '0') {
+        message += (days === '1')? '1 day ' : days + ' days ';
+      }
+      if (hours !== '') {
+        console.log(hours);
+        message += (hours === '1')? '1 hour ' : hours + ' hours ';
+      }
+      if (mins !== '') {
+        if (seconds === '60' || seconds === '0') {
+          message += 'and ';
+        }
+        message += (mins === '1')? '1 minute ' : mins + ' minutes';
+      }
+      if (seconds !== '0' && seconds !== '60' && seconds !== '') {
+        if (hours !== '' || mins !== '') {
+          message += ' and ';
+        }
+        message += (seconds === '1')? '1 second' : seconds + ' seconds';
+      }
+      if (seconds === '60'){
+        if (hours === '' && mins === '') {
+          message += '60 seconds';
+        }
+      }
+      message += ' until the next #USWNT match!';
+      message += ' #WomensWorldCup';
       if (encode) {
         message = encodeURIComponent(message);
       }

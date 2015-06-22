@@ -8,6 +8,7 @@ date_default_timezone_set ('America/New_York');
  * Master Array
  */
 $raw_date = '2015-06-22 20:00:00';
+// $raw_date = '2015-06-22 19:07:00';
 $raw_time = strtotime($raw_date);
 $data = array(
   'opponent' => array(
@@ -48,38 +49,55 @@ $interval = $date1->diff($date2, false);
  *     to compare before making the DateTime objects? Compare
  *     unix timestamps probably
  */
+$match_status = FALSE; // match is in the future and we are counting down
+$time_diff = array();
 if ($date1 > $date2) {
+
   // print "difference " . $interval->d . " days " . $interval->h . " hours " . $interval->i . " minutes " . $interval->s . " seconds<br>";
   // you want to use this...
-}
+  $match_status = TRUE;
+
+  /**
+   * Create arrays for hours and minutes
+   * The counter requires these numbers separately for efficiency.
+   * If the number is under ten then the first number is 0
+   */
+  if ($interval->h < 10) {
+    $hoursTil =  array(0, $interval->h);
+  } else {
+    $hoursTil =  str_split($interval->h);
+  }
+  if ($interval->i < 10) {
+    $minsTil =  array(0, $interval->i);
+  } else {
+    $minsTil =  str_split($interval->i);
+  }
+
+  $time_diff = array(
+    "days" => $interval->d,
+    "hours" => $hoursTil,
+    "mins" => $minsTil,
+    "seconds" => ($interval->s === 0)? 60 : $interval->s,
+  );
 
 
-/**
- * Create arrays for hours and minutes
- * The counter requires these numbers separately for efficiency.
- * If the number is under ten then the first number is 0
- */
-if ($interval->h < 10) {
-  $hoursTil =  array(0, $interval->h);
 } else {
-  $hoursTil =  str_split($interval->h);
+
+  $match_status = FALSE;
+  $time_diff = array(
+    "days" => 0,
+    "hours" => array(0, 0),
+    "mins" => array(0, 0),
+    "seconds" => 0, // only way to be 0 is this way meaning game is ON
+  );
+
 }
-if ($interval->i < 10) {
-  $minsTil =  array(0, $interval->i);
-} else {
-  $minsTil =  str_split($interval->i);
-}
+
 
 /**
  * The array containing the time difference the counter will use
  * @var array
  */
-$time_diff = array(
-  "days" => $interval->d,
-  "hours" => $hoursTil,
-  "mins" => $minsTil,
-  "seconds" => ($interval->s === 0)? 60 : $interval->s,
-);
 
 // For reference
 // print "difference " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days <br>";
@@ -262,6 +280,7 @@ function makeNumberScreen ($num = 0)
   </div>
 </header>
 
+
 <section class="site__main">
 
   <header class="main__header">
@@ -269,11 +288,17 @@ function makeNumberScreen ($num = 0)
       <i class="shield"></i>
       <i class="ball"></i>
     </div>
+    <?php if ($match_status): ?>
     <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs <?php print $data['opponent']['country_name']; ?> Begins In</h2>
+    <?php else: ?>
+    <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs <?php print $data['opponent']['country_name']; ?> is on right now</h2>
+    <?php endif; ?>
   </header>
 
   <section class="ref-wrap">
+    <?php if ($match_status): ?>
     <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
+    <?php endif; ?>
     <section class="counter-wrap">
       <?php require_once('./includes/counter.php'); ?>
     </section>

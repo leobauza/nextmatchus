@@ -23,7 +23,7 @@
           numbers = [],
           timeData = $('.counter').data();
       /**
-       * Grab this from PHP somehow....
+       * Grab this from php passing through data attrs
        */
       self.timeDiff = {
         days: timeData.days,
@@ -31,6 +31,8 @@
         mins: [timeData.minstens, timeData.minsones],
         seconds: timeData.seconds
       };
+
+      self.stopNextOne = false;
 
       numbers[0] = {
         a: ["a", "b", "c", "d"],
@@ -139,6 +141,9 @@
        */
       var count = self.timeDiff.seconds;
       (function clock () {
+
+        if (count === 0) { return; } //if count is 0 the game is ON
+
         //self.updateNumberBulbs(numbers[count]);
         self.updateSecondsBulbs(count);
         if (count === 1) {
@@ -159,7 +164,15 @@
              * update chain
              * decides what to update
              */
-            self.updateChain("mins", "minutes__ones", "minutes__tens");
+            if (self.timeDiff.days === 0 && self.timeDiff.hours[0] === 0 && self.timeDiff.hours[1] === 0 && self.timeDiff.mins[0] === 0 && self.timeDiff.mins[1] === 0) {
+              count = 0;
+              $('.counter__seconds .counter__bulb').removeClass('on');
+              $('.main__header h2').html("The <a href=\"#\" class=\"do-tweet\">#USWNT</a> Match vs Colombia is on right now");
+            } else {
+              self.updateChain("mins", "minutes__ones", "minutes__tens");
+            }
+
+
           }
 
           //console.log(count);
@@ -242,10 +255,8 @@
     },
 
     updateSecondsBulbs: function (seconds) {
-
       var self = this,
           $second = $('.counter__seconds .counter__bulb[data-second="' + seconds + '"]');
-
 
       if (seconds === 1) {
         $('.counter__seconds .counter__bulb').addClass('on');
