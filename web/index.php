@@ -346,5 +346,6 @@ function makeNumberScreen ($num = 0)
 </section>
 
 <div class="opl"><a href="http://onepagelove.com/next-match-us" target="_blank">Next Match US</a></div>
+<div id="awwwards" class="nominee black left"><a href="http://www.awwwards.com/best-websites/next-match-by-nji-media/" target="_blank">Awwwards</a></div>
 
 <?php require_once('./includes/footer.php'); ?>

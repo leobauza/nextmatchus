@@ -102,14 +102,82 @@
   z-index: 99999;
 }
 .opl a {
+  @include transition(opacity .5s);
+  opacity: 0.2;
   width: 73px;
   height: 56px;
   text-indent: -9999px;
   display: block;
   background: url('https://s3.amazonaws.com/onepagelove/one-page-love-award-left.png') no-repeat;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/**
+ * AWWWARDS
+ */
+/* Base */
+
+#awwwards{
+  position: fixed;
+  bottom: 120px;
+  width: 90px;
+  height: 135px;
+  text-indent: -666em;
+  overflow: hidden;
+  z-index: 999;
+
+  -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+
+}
+#awwwards.top{
+  top: 200px;
+}
+#awwwards.left{
+  left: 0;
+}
+
+#awwwards a{
+  @include transition(opacity .5s);
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 90px;
+  height: 135px;
+  background-repeat: no-repeat;
+  background-size: 90px 135px;
+  &:hover {
+    opacity: 1;
+  }
+
+}
+
+#awwwards.nominee.black.left a{
+  background-image: url(../ribbons/awwwards_nominee_black_left.png);
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2),  only screen and (min-device-pixel-ratio: 1.5) {
+
+  #awwwards.nominee.black.left a{
+    background-image: url(../ribbons/awwwards_nominee_black_left@2x.png);
+  }
+
 }
 
 @media (max-width: 37.5em) { // 850px
+
+  #awwwards {
+    bottom: 90px;
+    width: 55px;
+    height: 85px;
+    a {
+      background-size: 55px;
+    }
+  }
 
   .overlay {
     .inner {
