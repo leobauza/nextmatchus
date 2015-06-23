@@ -7,13 +7,13 @@ date_default_timezone_set ('America/New_York');
 /**
  * Master Array
  */
-$raw_date = '2015-06-22 20:00:00';
+$raw_date = '2015-06-26 19:30:00';
 // $raw_date = '2015-06-22 19:07:00';
 $raw_time = strtotime($raw_date);
 $data = array(
   'opponent' => array(
-    'country_name' => 'Colombia',
-    'country_code' => 'col',
+    'country_name' => 'China PR',
+    'country_code' => 'chn',
   ),
   'date_time' => array(
     'raw' => $raw_date,
@@ -21,8 +21,8 @@ $data = array(
     'date' => date('d M Y', $raw_time),
   ),
   'location' => array(
-    'stadium' => 'Commonwealth Stadium',
-    'city' => 'Edmonton',
+    'stadium' => 'Lansdowne Stadium',
+    'city' => 'Ottawa',
     'country_code' => 'can',
     'country_name' => 'Canada',
   ),
@@ -344,5 +344,7 @@ function makeNumberScreen ($num = 0)
     <a href="http://njimedia.com" target="_blank" class="nji-media">NJI Media</a>
   </footer>
 </section>
+
+<div class="opl"><a href="http://onepagelove.com/next-match-us" target="_blank">Next Match US</a></div>
 
 <?php require_once('./includes/footer.php'); ?>
