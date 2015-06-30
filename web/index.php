@@ -7,13 +7,13 @@ date_default_timezone_set ('America/New_York');
 /**
  * Master Array
  */
-$raw_date = '2015-06-26 19:30:00';
+$raw_date = '2015-06-30 19:00:00';
 // $raw_date = '2015-06-22 19:07:00';
 $raw_time = strtotime($raw_date);
 $data = array(
   'opponent' => array(
-    'country_name' => 'China PR',
-    'country_code' => 'chn',
+    'country_name' => 'Germany',
+    'country_code' => 'ger',
   ),
   'date_time' => array(
     'raw' => $raw_date,
@@ -21,8 +21,8 @@ $data = array(
     'date' => date('d M Y', $raw_time),
   ),
   'location' => array(
-    'stadium' => 'Lansdowne Stadium',
-    'city' => 'Ottawa',
+    'stadium' => 'Olympic Stadium',
+    'city' => 'Montreal',
     'country_code' => 'can',
     'country_name' => 'Canada',
   ),

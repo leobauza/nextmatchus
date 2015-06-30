@@ -216,6 +216,9 @@
   &-chn i {
     @include sprite($flag_chn);
   }
+  &-ger i {
+    @include sprite($flag_ger);
+  }
 }
 .icon-stopwatch {
   display: block;
