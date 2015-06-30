@@ -39,9 +39,11 @@
 
 // Wrap Everything and Ref
 .ref-wrap {
-  @include transition(bottom .5s);
+  @include transition(top .5s);
   position: absolute;
-  bottom: -350px; // -20px (move this depending on height)
+  // bottom: -350px; // -20px (move this depending on height)
+  // top: 220px;
+  top: 100%;
   left: 50%;
   margin-left: -224px;
   @include square(448px, 1130px);
@@ -232,7 +234,9 @@
   }
 
   .ref-wrap {
-    bottom: -250px;
+    // bottom: -250px;
+    // top: 150px;
+    // top: 100%;
     height: 1080px;
     margin-left: -190px;
     width: 380px;
