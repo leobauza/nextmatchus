@@ -167,7 +167,7 @@
             if (self.timeDiff.days === 0 && self.timeDiff.hours[0] === 0 && self.timeDiff.hours[1] === 0 && self.timeDiff.mins[0] === 0 && self.timeDiff.mins[1] === 0) {
               count = 0;
               $('.counter__seconds .counter__bulb').removeClass('on');
-              $('.main__header h2').html("The <a href=\"#\" class=\"do-tweet\">#USWNT</a> Match vs Germany is on right now");
+              $('.main__header h2').html("The <a href=\"#\" class=\"do-tweet\">#USWNT</a> Match vs England or Japan is on right now");
               $('.ref').addClass('rapinoe');
               $('.counter-wrap').addClass('flag');
               $('.counter__days').remove();

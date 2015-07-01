@@ -26,7 +26,7 @@ function heightAdjustments() {
     });
   } else {
     $('.ref-wrap').css({
-      'top': headerHeight + 10 + 'px'
+      'top': headerHeight + 15 + 'px'
     });
   }
 
@@ -39,7 +39,7 @@ function heightAdjustments() {
 
     if (winWidth > 850 && newWinWidth < 850) {
       $('.ref-wrap').css({
-        'top': newHeaderHeight + 10 + 'px'
+        'top': newHeaderHeight + 15 + 'px'
       });
     }
 

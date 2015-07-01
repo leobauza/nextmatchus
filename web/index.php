@@ -7,13 +7,14 @@ date_default_timezone_set ('America/New_York');
 /**
  * Master Array
  */
-$raw_date = '2015-06-30 19:00:00';
+// $raw_date = '2015-07-04 16:00:00';
+$raw_date = '2015-07-05 19:00:00';
 // $raw_date = '2015-06-30 17:37:00';
 $raw_time = strtotime($raw_date);
 $data = array(
   'opponent' => array(
-    'country_name' => 'Germany',
-    'country_code' => 'ger',
+    'country_name' => 'TBD', // Japan or England
+    'country_code' => 'tbd', // jpn or eng
   ),
   'date_time' => array(
     'raw' => $raw_date,
@@ -21,8 +22,8 @@ $data = array(
     'date' => date('d M Y', $raw_time),
   ),
   'location' => array(
-    'stadium' => 'Olympic Stadium',
-    'city' => 'Montreal',
+    'stadium' => 'BC Place Stadium', // or Commonwealth Stadium
+    'city' => 'Vancouver', // or Edmonton
     'country_code' => 'can',
     'country_name' => 'Canada',
   ),
@@ -289,7 +290,8 @@ function makeNumberScreen ($num = 0)
       <i class="ball"></i>
     </div>
     <?php if ($match_status): ?>
-    <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs <?php print $data['opponent']['country_name']; ?> Begins In</h2>
+    <h2>The <a href="#" class="do-tweet">#USWNT</a> plays in the World Cup Final In</h2>
+    <!-- <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs <?php print $data['opponent']['country_name']; ?> Begins In</h2> -->
     <?php else: ?>
     <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs <?php print $data['opponent']['country_name']; ?> is on right now</h2>
     <?php endif; ?>

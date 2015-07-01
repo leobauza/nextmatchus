@@ -219,6 +219,11 @@
   &-ger i {
     @include sprite($flag_ger);
   }
+  &-tbd i {
+    width: 39px;
+    height: 25px;
+    background: $white;
+  }
 }
 .icon-stopwatch {
   display: block;
