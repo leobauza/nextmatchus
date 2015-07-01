@@ -54,6 +54,14 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
+  &.rapinoe {
+    bottom: auto;
+    left: 50%;
+    top: 0px;
+    margin-left: -145px;
+    background: url(../img/rapinoe.png) no-repeat;
+    // background-size: 50%;
+  }
 }
 
 // Counter
@@ -66,6 +74,19 @@
   top: 0px;
   left: 50%;
   margin-left: -187px;
+  &.flag {
+    @include borderRadius(0px);
+    @include sprite($old_glory);
+    @include boxShadow(0px 0px 10px 0px rgba(0,0,0,0.3));
+    top: -10px;
+    width: 500px;
+    height: 263px;
+    padding: 0px;
+    margin-left: -250px;
+    .counter {
+      display: none;
+    }
+  }
 }
 
 // Days
@@ -244,6 +265,10 @@
   .ref {
     width: 380px;
     background-size: 100%;
+    &.rapinoe {
+      background: url(../img/rapinoe.png) 25% 0% no-repeat;
+      background-size: 50%;
+    }
   }
   .counter-wrap {
     width: 262px;

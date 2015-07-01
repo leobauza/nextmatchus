@@ -8,7 +8,7 @@ date_default_timezone_set ('America/New_York');
  * Master Array
  */
 $raw_date = '2015-06-30 19:00:00';
-// $raw_date = '2015-06-22 19:07:00';
+// $raw_date = '2015-06-30 17:37:00';
 $raw_time = strtotime($raw_date);
 $data = array(
   'opponent' => array(
@@ -299,10 +299,10 @@ function makeNumberScreen ($num = 0)
     <?php if ($match_status): ?>
     <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
     <?php endif; ?>
-    <section class="counter-wrap">
+    <section class="counter-wrap<?php if (!$match_status) print ' flag'; ?>">
       <?php require_once('./includes/counter.php'); ?>
     </section>
-    <div class="ref"></div>
+    <div class="ref<?php if (!$match_status) print ' rapinoe'; ?>"></div>
   </section>
 
   <footer class="main__footer">

@@ -14,9 +14,6 @@ var social = new Social(document, {
   clock: clock
 });
 
-
-
-
 function heightAdjustments() {
 
   var headerHeight = $('.main__header').outerHeight(),
