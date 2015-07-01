@@ -7,13 +7,13 @@ date_default_timezone_set ('America/New_York');
 /**
  * Master Array
  */
-$raw_date = '2015-06-22 20:00:00';
+$raw_date = '2015-06-30 19:00:00';
 // $raw_date = '2015-06-22 19:07:00';
 $raw_time = strtotime($raw_date);
 $data = array(
   'opponent' => array(
-    'country_name' => 'Colombia',
-    'country_code' => 'col',
+    'country_name' => 'Germany',
+    'country_code' => 'ger',
   ),
   'date_time' => array(
     'raw' => $raw_date,
@@ -21,8 +21,8 @@ $data = array(
     'date' => date('d M Y', $raw_time),
   ),
   'location' => array(
-    'stadium' => 'Commonwealth Stadium',
-    'city' => 'Edmonton',
+    'stadium' => 'Olympic Stadium',
+    'city' => 'Montreal',
     'country_code' => 'can',
     'country_name' => 'Canada',
   ),
@@ -320,7 +320,7 @@ function makeNumberScreen ($num = 0)
     </ul>
   </div>
 
-  <h5>2015 United States Women's World Cup Games Countdown</h5>
+  <h5>2015 US Soccer Women's World Cup Games Countdown</h5>
 
   <a class="footer__brand" href="http://njimedia.com" target="_blank">NJI Media</a>
 
@@ -331,8 +331,8 @@ function makeNumberScreen ($num = 0)
   <div class="inner">
     <h1>About</h1>
     <i class="flag">flag</i>
-    <h3 class="subtitle">Support Your Squad</h3>
-    <h3 class="motto">With this counter you'll never miss another match</h3>
+    <h3 class="subtitle">Support US Soccer</h3>
+    <h3 class="motto">With this counter you'll never miss another US Soccer match</h3>
     <p>The kind hearted souls at NJI Media's Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
     <ul class="overlay__social">
       <li><a class="btn--main facebook do-share" href="#"><i></i>Share</a></li>
@@ -344,5 +344,8 @@ function makeNumberScreen ($num = 0)
     <a href="http://njimedia.com" target="_blank" class="nji-media">NJI Media</a>
   </footer>
 </section>
+
+<!-- <div class="opl"><a href="http://onepagelove.com/next-match-us" target="_blank">Next Match US</a></div>
+<div id="awwwards" class="nominee black left"><a href="http://www.awwwards.com/best-websites/next-match-by-nji-media/" target="_blank">Awwwards</a></div> -->
 
 <?php require_once('./includes/footer.php'); ?>

@@ -169,6 +169,8 @@
       display: block;
     }
     i {
+      display: block;
+      text-indent: -99999px;
       margin-bottom: 10px;
     }
   }
@@ -206,14 +208,16 @@
 }
 .flag {
   &-usa i {
-    display: block;
-    text-indent: -99999px;
     @include sprite($flag_usa);
   }
   &-col i {
-    display: block;
-    text-indent: -99999px;
     @include sprite($flag_col);
+  }
+  &-chn i {
+    @include sprite($flag_chn);
+  }
+  &-ger i {
+    @include sprite($flag_ger);
   }
 }
 .icon-stopwatch {
