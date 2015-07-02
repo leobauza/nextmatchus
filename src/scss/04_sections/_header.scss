@@ -219,6 +219,10 @@
   &-ger i {
     @include sprite($flag_ger);
   }
+  &-jpn i {
+    background: $white;
+    @include sprite($flag_jpn);
+  }
   &-tbd i {
     width: 39px;
     height: 25px;

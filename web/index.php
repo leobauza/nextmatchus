@@ -13,8 +13,8 @@ $raw_date = '2015-07-05 19:00:00';
 $raw_time = strtotime($raw_date);
 $data = array(
   'opponent' => array(
-    'country_name' => 'TBD', // Japan or England
-    'country_code' => 'tbd', // jpn or eng
+    'country_name' => 'Japan', // Japan or England
+    'country_code' => 'jpn', // jpn or eng
   ),
   'date_time' => array(
     'raw' => $raw_date,
