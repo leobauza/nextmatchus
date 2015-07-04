@@ -65,9 +65,10 @@
     </header>
 
     <section class="ref-wrap">
-      <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
-      <section class="counter-wrap<?php if (!$match_status) print ' flag'; ?>">
-        
+      <h3 class="counter__days">the days....</h3>
+      <!-- print flag class on match day (like rapinoe class) -->
+      <section class="counter-wrap">
+        {{ myplugin("echo 'hello world'") }}
       </section>
       <!-- add rapinoe class -->
       <div class="ref"></div>
