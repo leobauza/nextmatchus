@@ -20,14 +20,102 @@
 {% extends "_layout" %}
 
 {% block content %}
-	<h1>{{ entry.title }}</h1>
 
-	{{ entry.body }}
+  <header class="site__header">
+    <a id="brand" href="https://www.njimedia.com/team/joshshultz/" target="_blank"><span>Shultz Division</span></a>
+    <div href="#" class="match-facts">
+      <a href="#"><span><i class="f"><b></b></i><i class="m"><b></b></i><i class="l"><b></b></i></span>Match Facts</a>
+      <div class="facts__dropdown">
+        <header class="dropdown__header group">
+          <div class="flag-usa country">
+            <i>FLAG</i>
+            <span>Usa</span>
+          </div>
+          <div class="vs"><span>VS</span></div>
+          <div class="flag-jpn country oponent">
+            <i>FLAG</i>
+            <span>Japan</span>
+          </div>
+        </header>
+        <div class="dropdown__body">
+          <i class="icon-stopwatch">clock</i>
+          <p>????? EST</p>
+          <i class="division-line"></i>
+          <p>?????</p>
+        </div>
+        <footer class="dropdown__footer">
+          <i class="icon-stadium">stadium</i>
+          <p>STADIUM</p>
+          <i class="division-line"></i>
+          <p>City (CAN)</p>
+        </footer>
+      </div>
+    </div>
+  </header>
 
-	<h2>Recent News</h2>
-	<ul>
-		{% for entry in craft.entries.section('news').limit(5).find() %}
-			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-		{% endfor %}
-	</ul>
+
+  <section class="site__main">
+
+    <header class="main__header">
+      <div class="usa-icons">
+        <i class="shield"></i>
+        <i class="ball"></i>
+      </div>
+      <h2>The <a href="#" class="do-tweet">#USWNT</a> plays in the World Cup Final In</h2>
+    </header>
+
+    <section class="ref-wrap">
+      <h3 class="counter__days"><?php print $time_diff['days']; ?> <?php ($time_diff['days'] === 1)? print "Day" : print "Days" ?></h3>
+      <section class="counter-wrap<?php if (!$match_status) print ' flag'; ?>">
+        
+      </section>
+      <!-- add rapinoe class -->
+      <div class="ref"></div>
+    </section>
+
+    <footer class="main__footer">
+      <a class="info-link" href="#">What's This?<i></i></a>
+    </footer>
+
+  </section>
+
+  <footer class="site__footer">
+    <div class="footer__social">
+      <h6>Let America Know</h6>
+      <ul>
+        <li><a class="facebook do-share" href="#">Facebook</a></li>
+        <li><a class="twitter do-tweet" href="#">Twitter</a></li>
+      </ul>
+    </div>
+
+    <h5>2015 US Soccer Women's World Cup Games Countdown</h5>
+
+    <a class="footer__brand" href="http://njimedia.com" target="_blank">NJI Media</a>
+
+  </footer>
+
+  <section class="overlay">
+    <a href="#" class="overlay__close">&times;</a>
+    <div class="inner">
+      <h1>About</h1>
+      <i class="flag">flag</i>
+      <h3 class="subtitle">Support US Soccer</h3>
+      <h3 class="motto">With this counter you'll never miss another US Soccer match</h3>
+      <p>The kind hearted souls at NJI Media's Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
+      <ul class="overlay__social">
+        <li><a class="btn--main facebook do-share" href="#"><i></i>Share</a></li>
+        <li><a class="btn--main twitter do-tweet" href="#"><i></i>Share</a></li>
+      </ul>
+    </div>
+    <footer class="overlay__footer">
+      <a href="https://www.njimedia.com/team/joshshultz/" target="_blank" class="shultz-division">Shultz Division</a>
+      <a href="http://njimedia.com" target="_blank" class="nji-media">NJI Media</a>
+    </footer>
+  </section>
+
+
+
+
+
+
 {% endblock %}
