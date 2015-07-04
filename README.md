@@ -4,6 +4,12 @@ Nextmatch.us is a site that counts down to the USWNT's next game. We plan to exp
 
 ## Changelog
 
+##### `v0.4.0`
+- Add Craft
+
+##### `v0.3.0`
+- Minor Changes
+
 ##### `v0.2.0`
 - Modified default tweet to include @ mention of USWNT
 - Window resizing bug fixes
