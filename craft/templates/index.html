@@ -21,6 +21,10 @@
 
 {% block content %}
 
+  {% for match in entry.matches %}
+    {{ match.date|date("Y-m-d H:i:s")  }}
+  {% endfor %}
+
   <header class="site__header">
     <a id="brand" href="https://www.njimedia.com/team/joshshultz/" target="_blank"><span>Shultz Division</span></a>
     <div href="#" class="match-facts">
@@ -61,14 +65,63 @@
         <i class="shield"></i>
         <i class="ball"></i>
       </div>
-      <h2>The <a href="#" class="do-tweet">#USWNT</a> plays in the World Cup Final In</h2>
+      <h2>The <a href="#" class="do-tweet">#USWNT</a> plays in the World Cup Final In {{ 'something'|myplugin.two }}</h2>
     </header>
 
     <section class="ref-wrap">
       <h3 class="counter__days">the days....</h3>
       <!-- print flag class on match day (like rapinoe class) -->
       <section class="counter-wrap">
-        {{ myplugin("echo 'hello world'") }}
+
+
+
+
+        <section class="counter"
+          data-days="0"
+          data-hourstens="0"
+          data-hoursones="0"
+          data-minstens="0"
+          data-minsones="0"
+          data-seconds="0">
+          <header class="counter__main">
+
+            <div class="counter__hours">
+
+              <div class="counter__number hours__tens">
+                {{ makeNumberScreen(1) }}
+              </div>
+
+              <div class="counter__number hours__ones">
+                {{ makeNumberScreen(1) }}
+              </div>
+              <h6>Hrs</h6>
+
+            </div>
+
+            <div class="counter__minutes">
+
+              <div class="counter__number minutes__tens">
+                {{ makeNumberScreen(1) }}
+              </div>
+
+              <div class="counter__number minutes__ones">
+                {{ makeNumberScreen(1) }}
+              </div>
+              <h6>Min</h6>
+            </div>
+
+          </header>
+          <footer class="counter__seconds">
+            <div class="seconds__row">
+              {{ makeSecondsScreen(0, 30, 24) }}
+            </div>
+            <div class="seconds__row">
+              {{ makeSecondsScreen(30, 60, 24) }}
+            </div>
+          </footer>
+        </section>
+
+
       </section>
       <!-- add rapinoe class -->
       <div class="ref"></div>
