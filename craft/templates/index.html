@@ -25,8 +25,8 @@
   {% set opponent, opponentCode, stadium, city, countryCode = '', '', '', '', '' %}
   {% for match in entry.matches %}
     {% if loop.first %}
-      <!-- {% set matchDateFull = match.date|date("Y-m-d H:i:s") %} -->
-      {% set matchDateFull = '2015-07-05 15:50:00' %}
+      {% set matchDateFull = match.date|date("Y-m-d H:i:s") %}
+      {# {% set matchDateFull = '2015-07-05 15:50:00' %} #}
       {% set matchDateParts = makeDateObject(matchDateFull) %}
       {% set opponent = match.opponent %}
       {% set opponentCode = match.opponentCode %}
@@ -189,10 +189,5 @@
       <a href="http://njimedia.com" target="_blank" class="nji-media">NJI Media</a>
     </footer>
   </section>
-
-
-
-
-
 
 {% endblock %}
