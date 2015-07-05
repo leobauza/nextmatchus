@@ -21,3 +21,5 @@ Thumbs.db
 node_modules
 wraith/shots
 wraith/casper_shots
+
+vendor
