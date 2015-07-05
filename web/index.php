@@ -9,7 +9,7 @@ date_default_timezone_set ('America/New_York');
  */
 // $raw_date = '2015-07-04 16:00:00';
 $raw_date = '2015-07-05 19:00:00';
-// $raw_date = '2015-06-30 17:37:00';
+// $raw_date = '2015-07-05 15:58:00';
 $raw_time = strtotime($raw_date);
 $data = array(
   'opponent' => array(
