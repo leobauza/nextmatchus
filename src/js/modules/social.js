@@ -36,7 +36,7 @@
 
       FB.ui({
         method: 'feed',
-        name: "When is the next #USWNT game?",
+        name: "When is the next #USMNT game?",
         link: "http://nextmatch.us",
         caption: message,
       }, function(response){
@@ -56,7 +56,7 @@
           tweet = '',
           url = 'http://nextmatch.us';
 
-      message = message + " @ussoccer_wnt";
+      message = message + " @ussoccer";
       tweet = "https://twitter.com/share?url=" + encodeURIComponent(url) + "&text=" + message;
 
       self.openIntent(tweet, 540, 420);
@@ -73,7 +73,7 @@
 
       // cut it off if the game is on
       if (hours === '' && mins === '' && seconds === '') {
-        message = 'The #USWNT match is on right now! What are you doing? Go WATCH! #WomensWorldCup';
+        message = 'The #USMNT match is on right now! What are you doing? Go WATCH! #GoldCup2015 ';
         return encodeURIComponent(message);
       }
 
@@ -103,8 +103,8 @@
           message += '60 seconds';
         }
       }
-      message += ' until the next #USWNT match!';
-      message += ' #WomensWorldCup';
+      message += ' until the next #USMNT match!';
+      message += ' #GoldCup2015';
       if (encode) {
         message = encodeURIComponent(message);
       }

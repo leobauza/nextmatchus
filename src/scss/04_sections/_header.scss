@@ -223,6 +223,10 @@
     background: $white;
     @include sprite($flag_jpn);
   }
+  &-hon i {
+    background: $white;
+    @include sprite($flag_hon);
+  }
   &-tbd i {
     width: 39px;
     height: 25px;

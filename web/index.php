@@ -8,13 +8,13 @@ date_default_timezone_set ('America/New_York');
  * Master Array
  */
 // $raw_date = '2015-07-04 16:00:00';
-$raw_date = '2015-07-05 19:00:00';
+$raw_date = '2015-07-07 21:30:00';
 // $raw_date = '2015-07-05 15:58:00';
 $raw_time = strtotime($raw_date);
 $data = array(
   'opponent' => array(
-    'country_name' => 'Japan', // Japan or England
-    'country_code' => 'jpn', // jpn or eng
+    'country_name' => 'Honduras', // Japan or England
+    'country_code' => 'hon', // jpn or eng
   ),
   'date_time' => array(
     'raw' => $raw_date,
@@ -22,10 +22,10 @@ $data = array(
     'date' => date('d M Y', $raw_time),
   ),
   'location' => array(
-    'stadium' => 'BC Place Stadium', // or Commonwealth Stadium
-    'city' => 'Vancouver', // or Edmonton
-    'country_code' => 'can',
-    'country_name' => 'Canada',
+    'stadium' => 'Toyota Stadium', // or Commonwealth Stadium
+    'city' => 'Frisco, TX', // or Edmonton
+    'country_code' => 'usa',
+    'country_name' => 'United States',
   ),
 );
 
@@ -290,10 +290,10 @@ function makeNumberScreen ($num = 0)
       <i class="ball"></i>
     </div>
     <?php if ($match_status): ?>
-    <h2>The <a href="#" class="do-tweet">#USWNT</a> plays in the World Cup Final In</h2>
-    <!-- <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs <?php print $data['opponent']['country_name']; ?> Begins In</h2> -->
+    <!-- <h2>The <a href="#" class="do-tweet">#USMNT</a> plays in the World Cup Final In</h2> -->
+    <h2>The <a href="#" class="do-tweet">#USMNT</a> Match vs <?php print $data['opponent']['country_name']; ?> Begins In</h2>
     <?php else: ?>
-    <h2>The <a href="#" class="do-tweet">#USWNT</a> Match vs <?php print $data['opponent']['country_name']; ?> is on right now</h2>
+    <h2>The <a href="#" class="do-tweet">#USMNT</a> Match vs <?php print $data['opponent']['country_name']; ?> is on right now</h2>
     <?php endif; ?>
   </header>
 
@@ -322,7 +322,7 @@ function makeNumberScreen ($num = 0)
     </ul>
   </div>
 
-  <h5>2015 US Soccer Women's World Cup Games Countdown</h5>
+  <h5>2015 US Soccer Mens's Gold Cup Games Countdown</h5>
 
   <a class="footer__brand" href="http://njimedia.com" target="_blank">NJI Media</a>
 
