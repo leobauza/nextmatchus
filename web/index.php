@@ -304,7 +304,7 @@ function makeNumberScreen ($num = 0)
     <section class="counter-wrap<?php if (!$match_status) print ' flag'; ?>">
       <?php require_once('./includes/counter.php'); ?>
     </section>
-    <div class="ref<?php if (!$match_status) print ' rapinoe'; ?>"></div>
+    <div class="ref mens<?php if (!$match_status) print ' rapinoe'; ?>"></div>
   </section>
 
   <footer class="main__footer">
@@ -322,7 +322,7 @@ function makeNumberScreen ($num = 0)
     </ul>
   </div>
 
-  <h5>2015 US Soccer Mens's Gold Cup Games Countdown</h5>
+  <h5>2015 US Soccer Men's Gold Cup Games Countdown</h5>
 
   <a class="footer__brand" href="http://njimedia.com" target="_blank">NJI Media</a>
 
