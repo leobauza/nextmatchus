@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>When is the next #USWNT match?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="When is the next #USWNT match?">
+  <meta name="description" content="When is the next #USWNT or #USMNT match?">
   <meta name="author" content="NJI Media's Shultz Division">
   <script src="//use.typekit.net/imc3isn.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
