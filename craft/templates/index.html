@@ -22,7 +22,7 @@
 {% block content %}
 
   {% set matchDateParts = {} %}
-  {% set opponent, opponentCode, stadium, city, countryCode = '', '', '', '', '' %}
+  {% set opponent, opponentCode, stadium, city, countryCode, team = '', '', '', '', '', '' %}
   {% for match in entry.matches %}
     {% if loop.first %}
       {% set matchDateFull = match.date|date("Y-m-d H:i:s") %}
@@ -33,6 +33,7 @@
       {% set stadium = match.stadium %}
       {% set city = match.city %}
       {% set countryCode = match.countryCode %}
+      {% set team = match.team %}
     {% endif %}
   {% endfor %}
 
@@ -79,10 +80,10 @@
         {% if entry.overrideHeader %}
           {{ entry.customHeading }}
         {% else %}
-          <h2>The <a href="#" class="do-tweet">#USWNT</a> match vs {{ opponent }} begins in</h2>
+          <h2>The <a href="#" class="do-tweet">#{{ team }}</a> match vs {{ opponent }} begins in</h2>
         {% endif %}
       {% else %}
-        <h2>The <a href="#" class="do-tweet">#USWNT</a> match vs {{ opponent }} is on!</h2>
+        <h2>The <a href="#" class="do-tweet">#{{ team }}</a> match vs {{ opponent }} is on!</h2>
       {% endif %}
 
     </header>
@@ -146,8 +147,11 @@
         </section>
 
       </section>
-
-      <div class="ref{% if not matchDateParts.status %} rapinoe{% endif %}"></div>
+      {% if team == 'USMNT' %}
+        <div class="ref mens{% if not matchDateParts.status %} howard{% endif %}"></div>
+      {% else %}
+        <div class="ref{% if not matchDateParts.status %} rapinoe{% endif %}"></div>
+      {% endif %}
     </section>
 
     <footer class="main__footer">
