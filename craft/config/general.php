@@ -10,11 +10,10 @@
 return array(
 
   '*' => array(
-
+    'omitScriptNameInUrls' => true,
   ),
 
   'nextmatch.loc' => array(
-    'omitScriptNameInUrls' => true,
     'devMode' => true,
     'siteUrl' => 'http://nextmatch.loc/',
     'environmentVariables' => array(
