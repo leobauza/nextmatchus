@@ -1,8 +1,12 @@
-# Nextmatch.us `v0.2.0 - Who we playin' again?`
+# Nextmatch.us `v1.0.0 - Crafty`
 
 Nextmatch.us is a site that counts down to the USWNT's next game. We plan to expand this functionality to the USMNT as well and countdown to any USNT happening next.
 
 ## Changelog
+
+##### `v1.0.0`
+- Fine tune craft implementation to go to production
+- **codename:** "Crafty"
 
 ##### `v0.4.0`
 - Add Craft
