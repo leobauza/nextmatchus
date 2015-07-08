@@ -227,6 +227,9 @@
     background: $white;
     @include sprite($flag_hon);
   }
+  &-hai i {
+    @include sprite($flag_hai);
+  }
   &-tbd i {
     width: 39px;
     height: 25px;
