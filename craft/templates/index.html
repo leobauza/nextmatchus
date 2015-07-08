@@ -1,0 +1,193 @@
+{#
+ # Homepage template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
+ #
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+  {% set matchDateParts = {} %}
+  {% set opponent, opponentCode, stadium, city, countryCode = '', '', '', '', '' %}
+  {% for match in entry.matches %}
+    {% if loop.first %}
+      {% set matchDateFull = match.date|date("Y-m-d H:i:s") %}
+      {# {% set matchDateFull = '2015-07-05 15:50:00' %} #}
+      {% set matchDateParts = makeDateObject(matchDateFull) %}
+      {% set opponent = match.opponent %}
+      {% set opponentCode = match.opponentCode %}
+      {% set stadium = match.stadium %}
+      {% set city = match.city %}
+      {% set countryCode = match.countryCode %}
+    {% endif %}
+  {% endfor %}
+
+  <header class="site__header">
+    <a id="brand" href="https://www.njimedia.com/team/joshshultz/" target="_blank"><span>Shultz Division</span></a>
+    <div href="#" class="match-facts">
+      <a href="#"><span><i class="f"><b></b></i><i class="m"><b></b></i><i class="l"><b></b></i></span>Match Facts</a>
+      <div class="facts__dropdown">
+        <header class="dropdown__header group">
+          <div class="flag-usa country">
+            <i>FLAG</i>
+            <span>Usa</span>
+          </div>
+          <div class="vs"><span>VS</span></div>
+          <div class="flag-{{ opponentCode }} country oponent">
+            <i>FLAG</i>
+            <span>{{ opponentCode }}</span>
+          </div>
+        </header>
+        <div class="dropdown__body">
+          <i class="icon-stopwatch">clock</i>
+          <p>{{ matchDateParts.info.est }} EST</p>
+          <i class="division-line"></i>
+          <p>{{ matchDateParts.info.date }}</p>
+        </div>
+        <footer class="dropdown__footer">
+          <i class="icon-stadium">stadium</i>
+          <p>{{ stadium }}</p>
+          <i class="division-line"></i>
+          <p>{{ city }} ({{ countryCode }})</p>
+        </footer>
+      </div>
+    </div>
+  </header>
+
+  <section class="site__main">
+
+    <header class="main__header">
+      <div class="usa-icons">
+        <i class="shield"></i>
+        <i class="ball"></i>
+      </div>
+      {% if matchDateParts.status %}
+        {% if entry.overrideHeader %}
+          {{ entry.customHeading }}
+        {% else %}
+          <h2>The <a href="#" class="do-tweet">#USWNT</a> match vs {{ opponent }} begins in</h2>
+        {% endif %}
+      {% else %}
+        <h2>The <a href="#" class="do-tweet">#USWNT</a> match vs {{ opponent }} is on!</h2>
+      {% endif %}
+
+    </header>
+
+    <section class="ref-wrap">
+      {% if matchDateParts.diff.days == 1 %}
+        <h3 class="counter__days">{{ matchDateParts.diff.days }} day</h3>
+      {% elseif matchDateParts.diff.days != 0 %}
+        <h3 class="counter__days">{{ matchDateParts.diff.days }} days</h3>
+      {% else %}
+        {% if matchDateParts.status %}
+        <h3 class="counter__days">--</h3>
+        {% endif %}
+      {% endif %}
+      <!-- print flag class on match day (like rapinoe class) -->
+      <section class="counter-wrap{% if not matchDateParts.status %} flag{% endif %}">
+
+        <section class="counter"
+          data-days="{{ matchDateParts.diff.days }}"
+          data-hourstens="{{ matchDateParts.diff.hours[0] }}"
+          data-hoursones="{{ matchDateParts.diff.hours[1] }}"
+          data-minstens="{{ matchDateParts.diff.mins[0] }}"
+          data-minsones="{{ matchDateParts.diff.mins[0] }}"
+          data-seconds="{{ matchDateParts.diff.seconds }}">
+          <header class="counter__main">
+
+            <div class="counter__hours">
+
+              <div class="counter__number hours__tens">
+                {{ makeNumberScreen(matchDateParts.diff.hours[0]) }}
+              </div>
+
+              <div class="counter__number hours__ones">
+                {{ makeNumberScreen(matchDateParts.diff.hours[1]) }}
+              </div>
+              <h6>Hrs</h6>
+
+            </div>
+
+            <div class="counter__minutes">
+
+              <div class="counter__number minutes__tens">
+                {{ makeNumberScreen(matchDateParts.diff.mins[0]) }}
+              </div>
+
+              <div class="counter__number minutes__ones">
+                {{ makeNumberScreen(matchDateParts.diff.mins[1]) }}
+              </div>
+              <h6>Min</h6>
+            </div>
+
+          </header>
+          <footer class="counter__seconds">
+            <div class="seconds__row">
+              {{ makeSecondsScreen(0, 30, matchDateParts.diff.seconds) }}
+            </div>
+            <div class="seconds__row">
+              {{ makeSecondsScreen(30, 60, matchDateParts.diff.seconds) }}
+            </div>
+          </footer>
+        </section>
+
+      </section>
+
+      <div class="ref{% if not matchDateParts.status %} rapinoe{% endif %}"></div>
+    </section>
+
+    <footer class="main__footer">
+      <a class="info-link" href="#">What's This?<i></i></a>
+    </footer>
+
+  </section>
+
+  <footer class="site__footer">
+    <div class="footer__social">
+      <h6>Let America Know</h6>
+      <ul>
+        <li><a class="facebook do-share" href="#">Facebook</a></li>
+        <li><a class="twitter do-tweet" href="#">Twitter</a></li>
+      </ul>
+    </div>
+
+    <h5>{{ entry.footerText }}</h5>
+
+    <a class="footer__brand" href="http://njimedia.com" target="_blank">NJI Media</a>
+
+  </footer>
+
+  <section class="overlay">
+    <a href="#" class="overlay__close">&times;</a>
+    <div class="inner">
+      <h1>About</h1>
+      <i class="flag">flag</i>
+      <h3 class="subtitle">Support US Soccer</h3>
+      <h3 class="motto">With this counter you'll never miss another US Soccer match</h3>
+      <p>The kind hearted souls at NJI Media's Shultz Division created this site in an effort to educate the masses and create a general uproar of patriotism</p>
+      <ul class="overlay__social">
+        <li><a class="btn--main facebook do-share" href="#"><i></i>Share</a></li>
+        <li><a class="btn--main twitter do-tweet" href="#"><i></i>Share</a></li>
+      </ul>
+    </div>
+    <footer class="overlay__footer">
+      <a href="https://www.njimedia.com/team/joshshultz/" target="_blank" class="shultz-division">Shultz Division</a>
+      <a href="http://njimedia.com" target="_blank" class="nji-media">NJI Media</a>
+    </footer>
+  </section>
+
+{% endblock %}

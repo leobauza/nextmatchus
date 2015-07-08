@@ -1,7 +1,25 @@
+# Craft runtime and backups folders
+# ----------------------------------------------------------------------
+craft/storage/runtime/*
+craft/storage/backups/*
+
+# Uploaded files
+# ----------------------------------------------------------------------
+web/files/*
+
+# Misc files
+# ----------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+
 .sass-cache
 .DS_Store
 node_modules
 wraith/shots
 wraith/casper_shots
 
-craft
+vendor
