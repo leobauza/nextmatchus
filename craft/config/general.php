@@ -32,10 +32,10 @@ return array(
   ),
 
   'nextmatch.us' => array(
-    'siteUrl' => 'http://nextmatch.loc/',
+    'siteUrl' => 'http://nextmatch.us/',
     'environmentVariables' => array(
-      'basePath' => '/var/www/vhosts/nextmatch.us/www/base/web/',
-      'baseUrl'  => 'http://nextmatch.loc/',
+      'basePath' => '/mnt/stor11-wc2-dfw1/529549/965314/www.nextmatch.us/web/content/',
+      'baseUrl'  => 'http://nextmatch.us/',
     )
   ),
 

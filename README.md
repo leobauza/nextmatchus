@@ -7,6 +7,7 @@ Nextmatch.us is a site that counts down to the USWNT's next game. We plan to exp
 ##### `v1.0.0`
 - Fine tune craft implementation to go to production
 - Changed `db.php` to work with environmental variables
+- Finally with craft on production!
 - **codename:** "Crafty"
 
 ##### `v0.4.0`

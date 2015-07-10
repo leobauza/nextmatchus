@@ -43,13 +43,13 @@ return array(
   'nextmatch.us' => array(
     // The database server name or IP address. Usually this is
     // 'localhost' or '127.0.0.1'.
-    'server' => '127.0.0.1',
+    'server' => 'mysql51-007.wc2.dfw1.stabletransit.com',
     // The database username to connect with.
-    'user' => 'root',
+    'user' => '965314_nmus_dbu',
     // The database password to connect with.
-    'password' => 'root',
+    'password' => 'gjLa3e&K]X7sZdkWkzqi',
     // The name of the database to select.
-    'database' => 'nextmatchus_craft',
+    'database' => '965314_nextmatchus_craft',
   ),
 
 );
