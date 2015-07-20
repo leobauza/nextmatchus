@@ -230,6 +230,18 @@
   &-hai i {
     @include sprite($flag_hai);
   }
+  &-pan i {
+    background: $white;
+    @include sprite($flag_pan);
+  }
+  &-cub i {
+    background: $white;
+    @include sprite($flag_cub);
+  }
+  &-jam i {
+    background: $white;
+    @include sprite($flag_jam);
+  }
   &-tbd i {
     width: 39px;
     height: 25px;
