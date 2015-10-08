@@ -242,6 +242,18 @@
     background: $white;
     @include sprite($flag_jam);
   }
+  &-crc i {
+    background: $white;
+    @include sprite($flag_crc);
+  }
+  &-per i {
+    background: $white;
+    @include sprite($flag_per);
+  }
+  &-mex i {
+    background: $white;
+    @include sprite($flag_mex);
+  }
   &-tbd i {
     width: 39px;
     height: 25px;

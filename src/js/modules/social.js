@@ -73,7 +73,7 @@
 
       // cut it off if the game is on
       if (hours === '' && mins === '' && seconds === '') {
-        message = 'The #USMNT match is on right now! What are you doing? Go WATCH! #GoldCup2015 ';
+        message = 'The #USMNT match is on right now! What are you doing? Go WATCH!';
         return encodeURIComponent(message);
       }
 
@@ -104,7 +104,7 @@
         }
       }
       message += ' until the next #USMNT match!';
-      message += ' #GoldCup2015';
+      //message += ' #GoldCup2015';
       if (encode) {
         message = encodeURIComponent(message);
       }
