@@ -4,7 +4,8 @@
   "description": "A countdown to the next US soccer game",
   "main": "index.php",
   "scripts": {
-    "test": " "
+    "test": " ",
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
     "gulp": "^3.8.11",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.0",
-    "gulp-sass": "^1.3.3",
+    "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^1.5.0",
     "gulp-svg-sprite": "^1.0.18",
     "gulp-svg2png": "^0.3.0",

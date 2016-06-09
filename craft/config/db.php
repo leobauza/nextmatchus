@@ -47,7 +47,7 @@ return array(
     // The database username to connect with.
     'user' => '965314_nmus_dbu',
     // The database password to connect with.
-    'password' => 'gjLa3e&K]X7sZdkWkzqi',
+    'password' => 'sTPVRQxgWsczdtgfeR8gjNbkb3ab',
     // The name of the database to select.
     'database' => '965314_nextmatchus_craft',
   ),

@@ -64,8 +64,16 @@ $footer_text: #9c9c9c;
 @media (max-width: 53.125em) { // 850px
 
   .site__footer {
-    @extend %borderBox;
+    // @extend %borderBox;
     padding: 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    &:before, &:after {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
     h5 {
       display: none;
     }

@@ -254,6 +254,10 @@
     background: $white;
     @include sprite($flag_mex);
   }
+  &-par i {
+    background: $white;
+    @include sprite($flag_par);
+  }
   &-tbd i {
     width: 39px;
     height: 25px;
@@ -298,4 +302,3 @@
 
 
 }
-
